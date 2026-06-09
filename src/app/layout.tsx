@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import "./globals.css"
+import { CartProvider } from "@/context/CartContext"
 
 export const metadata: Metadata = {
   title: {
@@ -19,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-background text-on-surface overflow-x-hidden selection:bg-strawberry-red selection:text-white antialiased">
-        {children}
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
     </html>
   )

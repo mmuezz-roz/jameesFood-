@@ -12,7 +12,7 @@ export default function Footer() {
             <img 
               alt="Jamees Logo" 
               className="h-12 mb-8" 
-              src="https://lh3.googleusercontent.com/aida/AP1WRLvhAMhSM8CU_Zp4CibZl4tmOwdg5UHFY2fMlx4oKMTzX7sHXYiPJsUJja7Z_74SFV8hx25JYcn9gMuOIbciN2ITzuHGndDDrTMH6v2HKvi3sBHl0J50HJPVeoEwPXzrptpLTrUwKv0CULviBRtaanmC9tR8OKAVeSU5dxAgzt1IdwITrI4B_TyUgjeMJ25c5U-jkaGAB0FFsXW9VsKEo7dnS8gVEeuk1d30Ued5SS0hwWoc8T0saA-hoEEE" 
+              src="/jamees_logo.png.webp" 
             />
             <p className="text-on-surface-variant text-base leading-relaxed mb-8">
               UAE&apos;s favorite frozen treats since 2024. Handcrafted, 100% natural, and always wholesome. Shop Ice Candy, Sweets, and more.

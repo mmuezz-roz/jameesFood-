@@ -38,7 +38,7 @@ export async function submitContactForm(
   }
 
   const supabase = await createClient()
-  const { error } = await supabase.from("contact_enquiries").insert(parsed.data)
+  const { error } = await supabase.from("contact_enquiries").insert([parsed.data] as any)
 
   if (error) {
     console.error("Contact form error:", error)

@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     const supabase = await createClient()
     const { error } = await supabase
       .from("newsletter_subscribers")
-      .insert({ email })
+      .insert([{ email }] as any)
 
     if (error) {
       // Duplicate email — treat as success (idempotent)

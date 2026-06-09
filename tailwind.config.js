@@ -43,6 +43,16 @@ module.exports = {
         display: ["'Be Vietnam Pro'", "sans-serif"],
         body: ["'DM Sans'", "sans-serif"],
       },
+      keyframes: {
+        crossfade: {
+          '0%, 40%': { opacity: '0' },
+          '50%, 90%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        }
+      },
+      animation: {
+        crossfade: 'crossfade 8s ease-in-out infinite',
+      }
     },
   },
   plugins: [],

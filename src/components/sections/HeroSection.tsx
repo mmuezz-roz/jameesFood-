@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
+import heroBg from "../../../public/hero-bg.webp"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight, ChevronDown } from "lucide-react"
 
@@ -30,14 +32,22 @@ export default function HeroSection() {
       id="hero"
       className="relative min-h-screen flex items-center bg-[#FAFAF8] overflow-hidden"
     >
-      {/* Subtle warm radial */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#E8A000]/[0.08] blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#1BBFA3]/[0.06] blur-[80px]" />
+      {/* Background Layer */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src={heroBg} 
+          alt="Hero Background" 
+          fill 
+          priority
+          placeholder="blur"
+          className="object-cover object-center"
+        />
+        {/* Subtle overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAFAF8] via-[#FAFAF8]/60 to-transparent pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-20 w-full">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-2xl">
 
           {/* ── Left: Text ── */}
           <div className="flex flex-col gap-7">
@@ -122,62 +132,6 @@ export default function HeroSection() {
               ))}
             </motion.div>
           </div>
-
-          {/* ── Right: Visual ── */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex items-center justify-center"
-          >
-            {/* Large gold circle */}
-            <div className="relative w-72 h-72 md:w-[420px] md:h-[420px]">
-              {/* Outer ring */}
-              <div className="absolute inset-0 rounded-full border border-[#E8A000]/15" />
-              <div className="absolute inset-4 rounded-full border border-[#E8A000]/10" />
-
-              {/* Main circle */}
-              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-[#F2EDE4] via-[#E8A000]/10 to-[#F2EDE4] flex items-center justify-center shadow-[0_24px_80px_rgba(232,160,0,0.18)]">
-                <div className="flex flex-col items-center gap-3 text-center">
-                  <span className="text-[80px] md:text-[100px] leading-none select-none">🥤</span>
-                  <span className="font-display font-semibold text-[#111010]/30 text-[10px] tracking-[0.2em] uppercase">
-                    SipUp · Karumuru · Syrups
-                  </span>
-                </div>
-              </div>
-
-              {/* Floating badges */}
-              <motion.div
-                animate={{ y: [0, -7, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-3 -right-2 md:top-4 md:-right-8 card px-4 py-2.5 shadow-md"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#1BBFA3]" />
-                  <span className="font-display font-semibold text-[#111010] text-xs">100% Natural</span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 7, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-                className="absolute -bottom-3 -left-2 md:bottom-6 md:-left-10 card px-4 py-2.5 shadow-md"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-base">🌿</span>
-                  <span className="font-display font-semibold text-[#111010] text-xs">Guilt-Free Joy</span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-                className="absolute top-1/2 -right-4 md:-right-12 card px-3.5 py-2 shadow-md"
-              >
-                <span className="font-display font-semibold text-[#E8A000] text-xs">Farm Fresh 🌾</span>
-              </motion.div>
-            </div>
-          </motion.div>
         </div>
       </div>
 

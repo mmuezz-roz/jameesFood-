@@ -53,14 +53,20 @@ export default function KarumuruPage() {
                 10 AED <span className="text-lg text-on-surface-variant font-medium">/ pack</span>
               </div>
 
-              <div className="space-y-6 text-lg text-on-surface-variant leading-relaxed mb-12">
-                <p>
+              <div className="space-y-4 md:space-y-6 text-base md:text-lg text-on-surface-variant leading-relaxed mb-8 md:mb-12">
+                {/* Mobile concise description */}
+                <p className="md:hidden">
+                  The ultimate crunchy savory snack. Crafted with roasted spices and a timeless recipe for a perfect authentic bite.
+                </p>
+
+                {/* Desktop full description */}
+                <p className="hidden md:block">
                   Experience the ultimate crunch with our signature Karumuru Murukk. Crafted using a timeless traditional recipe, these golden, spiral-shaped savory snacks deliver an irresistible combination of roasted spices and perfect texture.
                 </p>
-                <p>
+                <p className="hidden md:block">
                   Made with premium rice flour, roasted urad dal, and infused with subtle hints of cumin and sesame seeds, every bite takes you on a flavorful journey to authentic snacking heritage. Perfect alongside a hot cup of tea or as an anytime crunchy delight.
                 </p>
-                <ul className="list-disc pl-5 mt-4 space-y-2 font-bold text-on-surface">
+                <ul className="hidden md:block list-disc pl-5 mt-4 space-y-2 font-bold text-on-surface">
                   <li>100% Authentic Recipe</li>
                   <li>No Artificial Preservatives</li>
                   <li>Crispy, Crunchy & Satisfying</li>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useCart } from "@/context/CartContext"
@@ -16,10 +16,32 @@ const NAV_LINKS = [
 export default function Navbar() {
   const { cartCount, setIsCartOpen } = useCart()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setHidden(true)
+      } else {
+        setHidden(false)
+      }
+      lastScrollY = currentScrollY
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <>
-      <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[94%] rounded-full bg-surface/80 backdrop-blur-2xl border border-white/40 shadow-xl z-50 flex justify-between items-center px-5 md:px-10 py-3.5 max-w-[1440px]">
+      <nav 
+        className={`fixed left-1/2 -translate-x-1/2 w-[94%] rounded-full bg-surface/80 backdrop-blur-2xl border border-white/40 shadow-xl z-50 flex justify-between items-center px-5 md:px-10 py-3.5 max-w-[1440px] transition-all duration-500 ease-in-out ${
+          hidden ? "-top-32 opacity-0 pointer-events-none" : "top-4 opacity-100"
+        }`}
+      >
         {/* Logo */}
         <Link className="flex items-center shrink-0" href="/">
           <Image
@@ -28,7 +50,7 @@ export default function Navbar() {
             src="/jamees_logo.png.webp"
             width={120}
             height={36}
-            style={{ width: "auto", height: "auto" }}
+            style={{ width: "auto" }}
             priority
           />
         </Link>

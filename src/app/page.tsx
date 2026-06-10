@@ -1,6 +1,9 @@
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import RevealObserver from "@/components/RevealObserver"
+import TestimonialSlider from "@/components/TestimonialSlider"
+import SipUpSlider from "@/components/SipUpSlider"
+import TrendingSlider from "@/components/TrendingSlider"
 import Image from "next/image"
 import Link from "next/link"
 import heroBg from "../../public/hero-bg.webp"
@@ -15,11 +18,6 @@ import savoryCollectionImg from "../../public/savory-snacks-collection.png"
 import sipupAllImg from "../../public/sipup-all.png"
 import coreValuesBg from "../../public/core-values-bg.jpg"
 import mashberePopsiclesImg from "../../public/mashbere-popsicles.png"
-import mashberePomoImg from "../../public/mashbere-pomo.png"
-import mashbereLycheeImg from "../../public/mashbere-lychee.png"
-import mashbereMangoImg from "../../public/mashbere-mango.png"
-import pookee09 from "./public/09.jpg"
-import popsicle14 from "./public/14.jpg"
 
 export default function HomePage() {
 
@@ -111,8 +109,8 @@ export default function HomePage() {
       </section>
 
       {/* Featured Category Cards */}
-      <section className="hidden md:block relative py-10 md:py-16 px-4 md:px-[80px] bg-background overflow-hidden">
-        <div className="max-w-[1440px] mx-auto w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-8 relative z-10 reveal">
+      <section className="hidden md:block relative py-10 md:py-16 px-4 md:px-[80px] lg:px-[120px] bg-background overflow-hidden">
+        <div className="max-w-[1440px] mx-auto w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 relative z-10 reveal">
           {/* Popsicles */}
           <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="block group flex flex-col h-[480px] rounded-3xl overflow-hidden bg-white shadow-sm border border-gray-100 cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
             {/* Image Container */}
@@ -191,7 +189,7 @@ export default function HomePage() {
       </section>
 
       {/* Browse Categories (Staggered Grid) */}
-      <section className="py-12 md:py-[120px] px-4 md:px-[80px] bg-surface-container-low" id="browse-categories">
+      <section className="py-12 md:py-[120px] px-4 md:px-[80px] lg:px-[120px] bg-surface-container-low" id="browse-categories">
         <div className="max-w-[1440px] mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal">
             <div className="max-w-2xl group cursor-default">
@@ -200,15 +198,15 @@ export default function HomePage() {
                 <span className="inline-block w-0 md:group-hover:w-10 h-[2px] bg-strawberry-red transition-all duration-500 ease-out"></span>
                 <span className="text-strawberry-red font-bold uppercase tracking-[0.2em] md:group-hover:tracking-[0.4em] text-sm transition-all duration-500">Fresh Selection</span>
               </div>
-              <h2 className="uppercase text-4xl md:text-5xl font-light mt-4 text-on-surface leading-tight tracking-wider transition-all duration-700 md:group-hover:translate-x-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Explore Our Collections</h2>
+              <h2 className="uppercase text-4xl md:text-5xl lg:text-6xl font-light mt-4 text-on-surface leading-tight tracking-wider transition-all duration-700 md:group-hover:translate-x-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Explore Our Collections</h2>
             </div>
             <a className="text-strawberry-red font-bold text-lg flex items-center group mb-2" href="#">
               View All <span className="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-2">arrow_forward</span>
             </a>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 reveal">
-            <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="md:col-span-8 group relative overflow-hidden rounded-3xl bg-white shadow-lg min-h-[500px] flex items-stretch cursor-pointer block">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 reveal">
+            <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="lg:col-span-8 group relative overflow-hidden rounded-3xl bg-white shadow-lg min-h-[500px] flex items-stretch cursor-pointer block">
               <Image 
                 src={pookeesCollectionImg}
                 alt="Pookees"
@@ -222,7 +220,7 @@ export default function HomePage() {
                 <div className="bg-white text-on-surface text-center w-fit px-7 py-3 rounded-full font-bold text-[10px] tracking-[0.2em] uppercase hover:bg-strawberry-red hover:text-white transition-all">Discover Flavors</div>
               </div>
             </a>
-            <div className="md:col-span-4 flex flex-col gap-8">
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-8">
               <Link href="/products/karumuru" className="flex-1 group relative overflow-hidden rounded-3xl bg-white shadow-lg min-h-[250px] cursor-pointer" id="snacks">
                 <Image 
                   src={savoryCollectionImg}
@@ -347,58 +345,45 @@ export default function HomePage() {
                 <p className="text-on-surface-variant text-sm max-w-xs leading-relaxed">Natural fruit ice pops and concentrated syrups designed for ultimate summer refreshment.</p>
               </div>
               <div className="relative flex-1 flex items-center justify-center py-10">
-                <div className="relative flex items-end justify-center w-full h-[384px]">
-                  {/* Left */}
-                  <div className="absolute left-1/2 -translate-x-[140%] bottom-0 h-80 w-32 group-hover:-translate-x-[160%] group-hover:-rotate-6 transition-all duration-500 drop-shadow-xl z-10">
-                    <Image src={mashberePomoImg} alt="Pomegranate SipUp" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-contain object-bottom" />
-                  </div>
-                  {/* Center */}
-                  <div className="absolute left-1/2 -translate-x-1/2 bottom-0 h-96 w-40 group-hover:-translate-y-4 transition-all duration-500 drop-shadow-2xl z-20">
-                    <Image src={mashbereLycheeImg} alt="Lychee SipUp" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-contain object-bottom" />
-                  </div>
-                  {/* Right */}
-                  <div className="absolute left-1/2 translate-x-[20%] bottom-0 h-80 w-32 group-hover:translate-x-[40%] group-hover:rotate-6 transition-all duration-500 drop-shadow-xl z-10">
-                    <Image src={mashbereMangoImg} alt="Mango SipUp" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-contain object-bottom" />
-                  </div>
-                </div>
+                <SipUpSlider />
               </div>
               <div className="border border-on-surface text-center text-on-surface w-full py-4 rounded-3xl font-bold text-[10px] tracking-[0.2em] uppercase group-hover:bg-on-surface group-hover:text-white transition-all">View SipUp Collection</div>
             </a>
           </div>
           
           {/* Commercial Infrastructure */}
-          <div className="mt-16 group relative overflow-hidden rounded-[4rem] glass-card flex flex-col md:flex-row items-center gap-12 p-12 md:p-20 hover:shadow-2xl transition-all border border-white/60 reveal">
-            <div className="md:w-1/2 space-y-8">
+          <div className="mt-16 md:mt-24 group relative overflow-hidden rounded-[2.5rem] md:rounded-[3rem] lg:rounded-[4rem] glass-card flex flex-col lg:flex-row items-center gap-8 md:gap-12 p-8 sm:p-10 md:p-16 lg:p-20 hover:shadow-2xl transition-all border border-white/60 reveal">
+            <div className="w-full lg:w-1/2 space-y-6 md:space-y-8">
               <div>
-                <span className="text-tertiary font-bold tracking-widest text-xs uppercase opacity-70">B2B INFRASTRUCTURE</span>
+                <span className="text-tertiary font-bold tracking-widest text-[10px] md:text-xs uppercase opacity-70">B2B INFRASTRUCTURE</span>
                 <h3 
-                  className="uppercase text-4xl md:text-5xl font-light text-on-surface mt-3 leading-tight tracking-wider"
+                  className="uppercase text-3xl sm:text-4xl md:text-5xl font-light text-on-surface mt-2 md:mt-3 leading-[1.15] md:leading-tight tracking-wider text-balance"
                   style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
                 >
-                  Mashbere Commercial <br/>
+                  Mashbere Commercial <br className="hidden md:block"/>
                   <span className="font-bold">Kiosk Systems</span>
                 </h3>
               </div>
-              <p className="text-on-surface-variant text-lg leading-relaxed">State-of-the-art kiosk solutions and high-performance cooling equipment designed for luxury retail, hospitality, and high-traffic venues.</p>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-tertiary">check_circle</span>
-                  <span className="font-bold text-on-surface">Smart Inventory</span>
+              <p className="text-on-surface-variant text-base md:text-lg leading-relaxed text-pretty">State-of-the-art kiosk solutions and high-performance cooling equipment designed for luxury retail, hospitality, and high-traffic venues.</p>
+              <div className="grid grid-cols-2 gap-4 md:gap-6">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <span className="material-symbols-outlined text-tertiary text-[20px] md:text-[24px]">check_circle</span>
+                  <span className="font-bold text-on-surface text-sm md:text-base">Smart Inventory</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-tertiary">eco</span>
-                  <span className="font-bold text-on-surface">Eco-Cooling</span>
+                <div className="flex items-center gap-2 md:gap-3">
+                  <span className="material-symbols-outlined text-tertiary text-[20px] md:text-[24px]">eco</span>
+                  <span className="font-bold text-on-surface text-sm md:text-base">Eco-Cooling</span>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-4">
-                <a href="https://www.mashbere.com/equipment" target="_blank" rel="noopener noreferrer" className="bg-tertiary text-white px-10 py-4 rounded-full font-bold shadow-lg shadow-tertiary/20 hover:scale-105 transition-all inline-block">Partner With Us</a>
-                <a className="flex items-center gap-2 px-10 py-4 rounded-full font-bold text-on-surface border-2 border-outline/30 hover:bg-white transition-all group/btn inline-block" href="https://www.mashbere.com" target="_blank" rel="noopener noreferrer">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full pt-2">
+                <a href="https://www.mashbere.com/equipment" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto text-center bg-tertiary text-white px-8 md:px-10 py-3.5 md:py-4 rounded-full font-bold shadow-lg shadow-tertiary/20 hover:scale-[1.02] active:scale-95 transition-all inline-block">Partner With Us</a>
+                <a className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 md:px-10 py-3.5 md:py-4 rounded-full font-bold text-on-surface border-2 border-outline/30 hover:bg-white active:bg-gray-100 transition-all group/btn inline-flex" href="https://www.mashbere.com" target="_blank" rel="noopener noreferrer">
                   Visit Mashbere 
-                  <span className="material-symbols-outlined text-base transition-transform group-hover/btn:translate-x-1">open_in_new</span>
+                  <span className="material-symbols-outlined text-sm md:text-base transition-transform group-hover/btn:translate-x-1">open_in_new</span>
                 </a>
               </div>
             </div>
-            <div className="md:w-1/2 relative">
+            <div className="w-full lg:w-1/2 relative mt-8 lg:mt-0">
               <div className="absolute inset-0 bg-tertiary/10 blur-[80px] rounded-full scale-110"></div>
               <div className="relative z-10 w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-lg transition-transform duration-1000 group-hover:scale-105">
                 <Image 
@@ -416,68 +401,7 @@ export default function HomePage() {
       {/* Trending Section */}
       <section className="py-12 md:py-[120px] px-4 md:px-[80px] bg-surface">
         <div className="max-w-[1440px] mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 md:mb-16 reveal gap-4">
-            <div className="group cursor-default">
-              <div className="flex items-center gap-2.5 mb-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-strawberry-red opacity-60"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-strawberry-red"></span>
-                </span>
-                <span className="text-strawberry-red text-[9px] font-bold tracking-[0.35em] uppercase transition-all duration-500 group-hover:tracking-[0.5em]">This Week</span>
-              </div>
-              <h2
-                className="uppercase font-black text-3xl md:text-6xl tracking-tight leading-none text-on-surface transition-all duration-500 md:group-hover:tracking-widest"
-                style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
-              >
-                Trending
-              </h2>
-              <div className="mt-2 h-[2px] w-0 group-hover:w-full bg-strawberry-red transition-all duration-700 ease-out rounded-full"></div>
-            </div>
-            <div className="flex space-x-4">
-              <button className="w-12 h-12 rounded-full border-2 border-strawberry-red/20 flex items-center justify-center hover:bg-strawberry-red hover:text-white transition-all">
-                <span className="material-symbols-outlined">chevron_left</span>
-              </button>
-              <button className="w-12 h-12 rounded-full bg-strawberry-red text-white flex items-center justify-center hover:brightness-110 shadow-lg shadow-strawberry-red/20 transition-all">
-                <span className="material-symbols-outlined">chevron_right</span>
-              </button>
-            </div>
-          </div>
-          
-          <div className="flex overflow-x-auto space-x-4 pb-6 scrollbar-hide reveal -mx-4 px-4">
-            <div className="min-w-[260px] sm:min-w-[300px] bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all group border border-gray-100 flex flex-col">
-              <div className="relative mb-8 bg-surface-container-low rounded-2xl aspect-[4/5] flex items-center justify-center overflow-hidden">
-                <Image src={pookee09} alt="Pookee" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                <span className="absolute top-4 left-4 bg-strawberry-red text-white text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-lg">BEST SELLER</span>
-              </div>
-              <div className="flex justify-between items-start mb-6 flex-1">
-                <div>
-                  <span className="text-strawberry-red font-bold tracking-[0.25em] text-[9px] uppercase">Mashbere Original</span>
-                  <h4 className="uppercase text-lg font-light tracking-wider text-on-surface mt-0.5" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Premium <span className="font-black">Pookee</span></h4>
-                  <p className="text-xs text-on-surface-variant mt-1">Authentic Mashbere Flavor</p>
-                </div>
-              </div>
-              <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="w-full border border-on-surface text-on-surface font-bold py-3.5 rounded-2xl hover:bg-strawberry-red hover:text-white hover:border-strawberry-red transition-all flex items-center justify-center gap-2 text-[10px] tracking-[0.15em] uppercase">
-                <span className="material-symbols-outlined text-base">open_in_new</span> View on Mashbere
-              </a>
-            </div>
-            
-            <div className="min-w-[260px] sm:min-w-[300px] bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all group border border-gray-100 flex flex-col">
-              <div className="relative mb-8 bg-surface-container-low rounded-2xl aspect-[4/5] flex items-center justify-center overflow-hidden">
-                <Image src={popsicle14} alt="Mashbere Popsicle" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                <span className="absolute top-4 left-4 bg-mango-yellow text-white text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-lg">NEW ARRIVAL</span>
-              </div>
-              <div className="flex justify-between items-start mb-6 flex-1">
-                <div>
-                  <span className="text-mango-yellow font-bold tracking-[0.25em] text-[9px] uppercase">New Arrival</span>
-                  <h4 className="uppercase text-lg font-light tracking-wider text-on-surface mt-0.5" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Mashbere <span className="font-black">Popsicle</span></h4>
-                  <p className="text-xs text-on-surface-variant mt-1">Real Fruit Popsicle</p>
-                </div>
-              </div>
-              <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="w-full border border-on-surface text-on-surface font-bold py-3.5 rounded-2xl hover:bg-strawberry-red hover:text-white hover:border-strawberry-red transition-all flex items-center justify-center gap-2 text-[10px] tracking-[0.15em] uppercase">
-                <span className="material-symbols-outlined text-base">open_in_new</span> View on Mashbere
-              </a>
-            </div>
-          </div>
+          <TrendingSlider />
         </div>
       </section>
 
@@ -498,58 +422,7 @@ export default function HomePage() {
               Love From Our Families
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10 reveal">
-            <div className="bg-white p-7 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-lg border border-gray-50 hover:shadow-xl transition-all">
-              <div className="text-mango-yellow mb-6 flex">
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-              </div>
-              <p className="text-lg text-on-surface-variant mb-10 leading-relaxed italic">&quot;Tastes just like the ice candy my lola used to make! That authentic fruit flavor takes me back to childhood. Perfect texture every single time.&quot;</p>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-strawberry-red/10 flex items-center justify-center font-black text-strawberry-red text-sm">K</div>
-                <div>
-                  <span className="uppercase text-sm font-light tracking-wider" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Kevin <span className="font-black">M.</span></span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-strawberry-red p-7 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl shadow-strawberry-red/20 md:-translate-y-8 text-white">
-              <div className="text-white/40 mb-6 flex">
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-              </div>
-              <p className="text-lg text-white/95 mb-10 leading-relaxed italic font-medium">&quot;My new afternoon pick-me-up! These ice candies melt perfectly. Love that they&apos;re portable, natural, and actually satisfy my sweet tooth without the guilt.&quot;</p>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center font-black text-strawberry-red shadow-lg text-sm">S</div>
-                <div>
-                  <span className="uppercase text-sm font-light tracking-wider" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Salama <span className="font-black">A.</span></span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white p-7 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-lg border border-gray-50 hover:shadow-xl transition-all">
-              <div className="text-mango-yellow mb-6 flex">
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
-              </div>
-              <p className="text-lg text-on-surface-variant mb-10 leading-relaxed italic">&quot;Finally, a frozen treat I feel good about giving my kids! No artificial junk, just real fruit flavors they adore. Mango is our absolute favorite!&quot;</p>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-strawberry-red/10 flex items-center justify-center font-black text-strawberry-red text-sm">H</div>
-                <div>
-                  <span className="uppercase text-sm font-light tracking-wider" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Hessa <span className="font-black">R.</span></span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <TestimonialSlider />
         </div>
       </section>
 

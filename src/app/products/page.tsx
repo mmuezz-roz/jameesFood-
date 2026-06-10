@@ -47,39 +47,44 @@ export default function ProductsPage() {
             <div className="h-[1px] flex-1 bg-outline/10"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal">
             {/* Karumuru Card */}
-            <div className="group bg-white rounded-[3rem] p-6 shadow-lg border border-outline/5 hover:shadow-2xl transition-all duration-500">
-              <Link href="/products/karumuru" className="block relative w-full aspect-square rounded-[2rem] overflow-hidden mb-6 bg-surface">
+            <div className="relative block w-full aspect-[4/5] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden group shadow-lg hover:shadow-2xl transition-all duration-700 border border-black/5">
+              <Link href="/products/karumuru" className="absolute inset-0 z-10">
                 <Image 
                   src={kurmuruImg} 
                   alt="Karumuru Murukk" 
                   fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
               </Link>
-              <div className="px-2">
-                <div className="flex justify-between items-start mb-2">
-                  <Link href="/products/karumuru">
-                    <span className="text-mango-yellow font-bold tracking-widest text-[10px] uppercase">Authentic Snack</span>
-                    <h3 
-                      className="uppercase text-xl font-light tracking-wider text-on-surface mt-1 group-hover:text-strawberry-red transition-colors"
-                      style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
-                    >
-                      Karumuru <span className="font-black">Murukk</span>
-                    </h3>
-                  </Link>
-                  <span className="text-xl font-black text-strawberry-red">10 AED</span>
+              
+              <span className="absolute top-5 left-5 bg-mango-yellow text-white text-[9px] md:text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-lg z-20 pointer-events-none">
+                10 AED
+              </span>
+
+              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col justify-end z-20 pointer-events-none">
+                <div className="transition-transform duration-500 md:translate-y-16 group-hover:translate-y-0">
+                  <span className="text-white/60 font-bold tracking-[0.25em] text-[9px] uppercase mb-1 drop-shadow-sm">Authentic Snack</span>
+                  <h3 className="uppercase text-2xl md:text-3xl font-light tracking-wider text-white drop-shadow-md" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+                    Karumuru <span className="font-black">Murukk</span>
+                  </h3>
+                  <p className="text-sm text-white/80 mt-2 line-clamp-2 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    Authentic, crunchy savory snacks crafted using a timeless traditional recipe.
+                  </p>
+                  
+                  <div className="mt-5 w-full pointer-events-auto md:opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                    <AddToCartButton 
+                      product={{
+                        id: "karumuru",
+                        name: "Karumuru Murukk",
+                        price: 10,
+                        image: "/kurmuru.jpg"
+                      }} 
+                    />
+                  </div>
                 </div>
-                <p className="text-on-surface-variant text-sm mb-6 line-clamp-2 leading-relaxed">Authentic, crunchy savory snacks crafted using a timeless traditional recipe.</p>
-                <AddToCartButton 
-                  product={{
-                    id: "karumuru",
-                    name: "Karumuru Murukk",
-                    price: 10,
-                    image: "/kurmuru.jpg"
-                  }} 
-                />
               </div>
             </div>
           </div>
@@ -100,80 +105,91 @@ export default function ProductsPage() {
             <div className="h-[1px] flex-1 bg-outline/10"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 reveal">
+            
             {/* Popsicles */}
-            <div className="group bg-surface rounded-[3rem] p-6 border border-outline/10 hover:bg-white hover:shadow-2xl transition-all duration-500">
-              <div className="relative w-full aspect-square rounded-[2rem] overflow-hidden mb-6 bg-white/50 flex items-center justify-center p-8">
-                <Image 
-                  src={popsiclesImg} 
-                  alt="Premium Popsicles" 
-                  className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-2xl"
-                />
-              </div>
-              <div className="px-2 text-center">
-                <span className="text-tertiary font-bold tracking-[0.25em] text-[10px] uppercase">Premium Range</span>
-                <h3 
-                  className="uppercase text-xl font-light tracking-wider text-on-surface mt-1 mb-1"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
-                >
-                  <span className="font-black">Popsicles</span>
+            <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="relative block w-full aspect-[4/5] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden group shadow-lg hover:shadow-2xl transition-all duration-700 border border-black/5 cursor-pointer bg-white">
+              <Image 
+                src={popsiclesImg} 
+                alt="Premium Popsicles" 
+                fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
+                className="object-contain p-8 md:p-12 transition-transform duration-[1.5s] ease-out group-hover:scale-110 drop-shadow-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
+              
+              <span className="absolute top-5 left-5 bg-white text-tertiary text-[9px] md:text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-lg z-20">
+                PREMIUM RANGE
+              </span>
+
+              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col justify-end z-20 transition-transform duration-500 md:translate-y-12 group-hover:translate-y-0">
+                <span className="text-white/60 font-bold tracking-[0.25em] text-[9px] uppercase mb-1 drop-shadow-sm">Mashbere Exclusive</span>
+                <h3 className="uppercase text-2xl md:text-3xl font-light tracking-wider text-white drop-shadow-md" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+                  Signature <span className="font-black">Popsicles</span>
                 </h3>
-                <p className="text-on-surface-variant text-sm mb-6 leading-relaxed">Artisanal frozen popsicles made with real fruit, in a range of bold flavors.</p>
-                <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="group/btn relative overflow-hidden block w-full border border-on-surface text-on-surface py-4 rounded-full font-bold text-xs tracking-[0.2em] uppercase hover:border-strawberry-red hover:text-strawberry-red transition-all">
-                  Visit Mashbere
-                </a>
+                <p className="text-sm text-white/80 mt-2 line-clamp-2 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                  Artisanal frozen popsicles made with real fruit in bold flavors.
+                </p>
+                <div className="mt-5 w-full bg-tertiary text-white font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2 text-[10px] tracking-[0.15em] uppercase md:opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                  <span className="material-symbols-outlined text-base">shopping_cart</span> Shop Now
+                </div>
               </div>
-            </div>
+            </a>
 
             {/* Pookees */}
-            <div className="group bg-surface rounded-[3rem] p-6 border border-outline/10 hover:bg-white hover:shadow-2xl transition-all duration-500">
-              <div className="relative w-full aspect-square rounded-[2rem] overflow-hidden mb-6 bg-white/50">
-                <Image 
-                  src={pookeesImg} 
-                  alt="Famous Pookees" 
-                  fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="px-2 text-center">
-                <span className="text-strawberry-red font-bold tracking-[0.25em] text-[10px] uppercase">Refreshing Blends</span>
-                <h3 
-                  className="uppercase text-xl font-light tracking-wider text-on-surface mt-1 mb-1"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
-                >
+            <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="relative block w-full aspect-[4/5] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden group shadow-lg hover:shadow-2xl transition-all duration-700 border border-black/5 cursor-pointer">
+              <Image 
+                src={pookeesImg} 
+                alt="Famous Pookees" 
+                fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
+                className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
+              
+              <span className="absolute top-5 left-5 bg-strawberry-red text-white text-[9px] md:text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-lg z-20">
+                BEST SELLER
+              </span>
+
+              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col justify-end z-20 transition-transform duration-500 md:translate-y-12 group-hover:translate-y-0">
+                <span className="text-white/60 font-bold tracking-[0.25em] text-[9px] uppercase mb-1 drop-shadow-sm">Refreshing Blends</span>
+                <h3 className="uppercase text-2xl md:text-3xl font-light tracking-wider text-white drop-shadow-md" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                   Famous <span className="font-black">Pookees</span>
                 </h3>
-                <p className="text-on-surface-variant text-sm mb-6 leading-relaxed">16 handcrafted seasonal flavors made with real fruit and traditional techniques.</p>
-                <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="block w-full border border-on-surface text-on-surface py-4 rounded-full font-bold text-xs tracking-[0.2em] uppercase hover:border-strawberry-red hover:text-strawberry-red transition-all">
-                  Visit Mashbere
-                </a>
+                <p className="text-sm text-white/80 mt-2 line-clamp-2 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                  16 handcrafted seasonal flavors made with real fruit.
+                </p>
+                <div className="mt-5 w-full bg-strawberry-red text-white font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2 text-[10px] tracking-[0.15em] uppercase md:opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                  <span className="material-symbols-outlined text-base">shopping_cart</span> Shop Now
+                </div>
               </div>
-            </div>
+            </a>
 
             {/* SipUp Syrups */}
-            <div className="group bg-surface rounded-[3rem] p-6 border border-outline/10 hover:bg-white hover:shadow-2xl transition-all duration-500">
-              <div className="relative w-full aspect-square rounded-[2rem] overflow-hidden mb-6 bg-white/50 p-4">
-                <Image 
-                  src={sipupAllImg} 
-                  alt="Signature Sipups" 
-                  fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-contain transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <div className="px-2 text-center">
-                <span className="text-mango-yellow font-bold tracking-[0.25em] text-[10px] uppercase">Natural Fruit</span>
-                <h3 
-                  className="uppercase text-xl font-light tracking-wider text-on-surface mt-1 mb-1"
-                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
-                >
+            <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="relative block w-full aspect-[4/5] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden group shadow-lg hover:shadow-2xl transition-all duration-700 border border-black/5 cursor-pointer bg-white">
+              <Image 
+                src={sipupAllImg} 
+                alt="Signature Sipups" 
+                fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
+                className="object-contain p-8 transition-transform duration-[1.5s] ease-out group-hover:scale-110 drop-shadow-xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
+              
+              <span className="absolute top-5 left-5 bg-mango-yellow text-white text-[9px] md:text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-lg z-20">
+                NATURAL FRUIT
+              </span>
+
+              <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col justify-end z-20 transition-transform duration-500 md:translate-y-12 group-hover:translate-y-0">
+                <span className="text-white/60 font-bold tracking-[0.25em] text-[9px] uppercase mb-1 drop-shadow-sm">Mashbere Extract</span>
+                <h3 className="uppercase text-2xl md:text-3xl font-light tracking-wider text-white drop-shadow-md" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                   Signature <span className="font-black">Sipups</span>
                 </h3>
-                <p className="text-on-surface-variant text-sm mb-6 leading-relaxed">Natural fruit ice pops and concentrated syrups for ultimate summer refreshment.</p>
-                <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="block w-full border border-on-surface text-on-surface py-4 rounded-full font-bold text-xs tracking-[0.2em] uppercase hover:border-strawberry-red hover:text-strawberry-red transition-all">
-                  Visit Mashbere
-                </a>
+                <p className="text-sm text-white/80 mt-2 line-clamp-2 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                  Natural fruit ice pops and concentrated syrups for summer.
+                </p>
+                <div className="mt-5 w-full bg-white text-on-surface font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2 text-[10px] tracking-[0.15em] uppercase md:opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                  <span className="material-symbols-outlined text-base">shopping_cart</span> Shop Now
+                </div>
               </div>
-            </div>
+            </a>
 
           </div>
         </div>

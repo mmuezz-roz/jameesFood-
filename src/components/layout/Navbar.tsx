@@ -38,7 +38,7 @@ export default function Navbar() {
   return (
     <>
       <nav 
-        className={`fixed left-1/2 -translate-x-1/2 w-[94%] rounded-full bg-surface/80 backdrop-blur-2xl border border-white/40 shadow-xl z-50 flex justify-between items-center px-5 md:px-10 py-3.5 max-w-[1440px] transition-all duration-500 ease-in-out ${
+        className={`fixed left-1/2 -translate-x-1/2 w-[94%] rounded-full bg-surface/80 backdrop-blur-xl border border-white/40 shadow-xl z-50 flex justify-between items-center px-5 md:px-10 xl:px-16 py-3.5 max-w-[1440px] transition-all duration-500 ease-in-out transform-gpu ${
           hidden ? "-top-32 opacity-0 pointer-events-none" : "top-4 opacity-100"
         }`}
       >
@@ -106,8 +106,8 @@ export default function Navbar() {
             className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="fixed top-[76px] left-1/2 -translate-x-1/2 w-[94%] max-w-sm z-40 md:hidden bg-white rounded-3xl shadow-2xl border border-black/5 overflow-hidden">
-            <div className="flex flex-col p-4 gap-1">
+          <div className="fixed top-[76px] left-1/2 -translate-x-1/2 w-[94%] max-w-sm z-40 md:hidden bg-white rounded-3xl shadow-2xl border border-black/5 overflow-hidden max-h-[calc(100vh-100px)] flex flex-col">
+            <div className="flex flex-col p-4 gap-1 overflow-y-auto scrollbar-hide">
               {NAV_LINKS.map((l) => (
                 <Link
                   key={l.href}
@@ -118,7 +118,7 @@ export default function Navbar() {
                   {l.label}
                 </Link>
               ))}
-              <div className="border-t border-black/5 mt-2 pt-3 flex flex-col gap-2">
+              <div className="border-t border-black/5 mt-2 pt-3 flex flex-col gap-2 shrink-0">
                 <Link
                   href="/products"
                   onClick={() => setMobileOpen(false)}

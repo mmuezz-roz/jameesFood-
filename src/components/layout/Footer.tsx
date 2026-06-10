@@ -7,9 +7,9 @@ export default function Footer() {
   return (
     <footer className="bg-surface-container-lowest pt-24 pb-12 rounded-t-[4rem] md:rounded-t-[6rem] shadow-[0_-20px_50px_rgba(0,0,0,0.03)]">
       <div className="max-w-[1440px] mx-auto px-5 md:px-[80px]">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-20">
           
-          <div className="md:col-span-1">
+          <div className="sm:col-span-2 lg:col-span-1">
             <Image 
               alt="Jamees Logo" 
               className="h-12 w-auto mb-8" 

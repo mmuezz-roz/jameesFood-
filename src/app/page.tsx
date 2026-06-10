@@ -121,7 +121,7 @@ export default function HomePage() {
                 <Image 
                   src={popsiclesImg} 
                   alt="Popsicles" 
-                  fill
+                  fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -146,7 +146,7 @@ export default function HomePage() {
                 <Image 
                   src={kurmuruImg} 
                   alt="Karumuru" 
-                  fill
+                  fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -171,7 +171,7 @@ export default function HomePage() {
                 <Image 
                   src={pookeesImg} 
                   alt="Famous Pookees" 
-                  fill
+                  fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -212,7 +212,7 @@ export default function HomePage() {
               <Image 
                 src={pookeesCollectionImg}
                 alt="Pookees"
-                fill
+                fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-10">
@@ -227,7 +227,7 @@ export default function HomePage() {
                 <Image 
                   src={savoryCollectionImg}
                   alt="Karumuru"
-                  fill
+                  fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-contain transition-transform duration-1000 scale-110 group-hover:scale-125"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-7">
@@ -239,7 +239,7 @@ export default function HomePage() {
                 <Image 
                   src={sipupAllImg}
                   alt="Signature Sipups"
-                  fill
+                  fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-contain transition-transform duration-1000 scale-110 group-hover:scale-125"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-7">
@@ -258,7 +258,7 @@ export default function HomePage() {
           <Image 
             src={coreValuesBg}
             alt="Core Values Background"
-            fill
+            fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"
           />
         </div>
@@ -350,15 +350,15 @@ export default function HomePage() {
                 <div className="relative flex items-end justify-center w-full h-[384px]">
                   {/* Left */}
                   <div className="absolute left-1/2 -translate-x-[140%] bottom-0 h-80 w-32 group-hover:-translate-x-[160%] group-hover:-rotate-6 transition-all duration-500 drop-shadow-xl z-10">
-                    <Image src={mashberePomoImg} alt="Pomegranate SipUp" fill className="object-contain object-bottom" />
+                    <Image src={mashberePomoImg} alt="Pomegranate SipUp" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-contain object-bottom" />
                   </div>
                   {/* Center */}
                   <div className="absolute left-1/2 -translate-x-1/2 bottom-0 h-96 w-40 group-hover:-translate-y-4 transition-all duration-500 drop-shadow-2xl z-20">
-                    <Image src={mashbereLycheeImg} alt="Lychee SipUp" fill className="object-contain object-bottom" />
+                    <Image src={mashbereLycheeImg} alt="Lychee SipUp" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-contain object-bottom" />
                   </div>
                   {/* Right */}
                   <div className="absolute left-1/2 translate-x-[20%] bottom-0 h-80 w-32 group-hover:translate-x-[40%] group-hover:rotate-6 transition-all duration-500 drop-shadow-xl z-10">
-                    <Image src={mashbereMangoImg} alt="Mango SipUp" fill className="object-contain object-bottom" />
+                    <Image src={mashbereMangoImg} alt="Mango SipUp" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-contain object-bottom" />
                   </div>
                 </div>
               </div>
@@ -404,7 +404,7 @@ export default function HomePage() {
                 <Image 
                   src={kioskImg} 
                   alt="Mashbere Commercial Kiosk System" 
-                  fill
+                  fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -446,7 +446,7 @@ export default function HomePage() {
           <div className="flex overflow-x-auto space-x-4 pb-6 scrollbar-hide reveal -mx-4 px-4">
             <div className="min-w-[260px] sm:min-w-[300px] bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all group border border-gray-100 flex flex-col">
               <div className="relative mb-8 bg-surface-container-low rounded-2xl aspect-[4/5] flex items-center justify-center overflow-hidden">
-                <Image src={pookee09} alt="Pookee" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                <Image src={pookee09} alt="Pookee" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-110 transition-transform duration-700" />
                 <span className="absolute top-4 left-4 bg-strawberry-red text-white text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-lg">BEST SELLER</span>
               </div>
               <div className="flex justify-between items-start mb-6 flex-1">
@@ -463,7 +463,7 @@ export default function HomePage() {
             
             <div className="min-w-[260px] sm:min-w-[300px] bg-white rounded-3xl p-6 shadow-md hover:shadow-xl transition-all group border border-gray-100 flex flex-col">
               <div className="relative mb-8 bg-surface-container-low rounded-2xl aspect-[4/5] flex items-center justify-center overflow-hidden">
-                <Image src={popsicle14} alt="Mashbere Popsicle" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                <Image src={popsicle14} alt="Mashbere Popsicle" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-110 transition-transform duration-700" />
                 <span className="absolute top-4 left-4 bg-mango-yellow text-white text-[10px] font-black tracking-widest px-3 py-1.5 rounded-full shadow-lg">NEW ARRIVAL</span>
               </div>
               <div className="flex justify-between items-start mb-6 flex-1">

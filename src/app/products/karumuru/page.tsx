@@ -29,14 +29,14 @@ export default function KarumuruPage() {
               <Image 
                 src={kurmuruImg} 
                 alt="Karumuru Murukk" 
-                fill
+                fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-all duration-700 group-hover:opacity-0"
                 priority
               />
               <Image 
                 src={kurmuruHoverImg} 
                 alt="Karumuru Murukk Detail" 
-                fill
+                fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-all duration-700 opacity-0 scale-95 group-hover:scale-100 group-hover:opacity-100"
                 priority
               />

@@ -68,7 +68,7 @@ export default function CartSidebar() {
               <div key={item.id} className="flex gap-4 bg-white p-4 rounded-2xl shadow-sm border border-[#111010]/5">
                 <div className="w-20 h-24 bg-gray-100 rounded-xl overflow-hidden relative flex-shrink-0">
                   {item.image ? (
-                    <Image src={item.image} alt={item.name} fill className="object-cover" />
+                    <Image src={item.image} alt={item.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-2xl">🍃</div>
                   )}

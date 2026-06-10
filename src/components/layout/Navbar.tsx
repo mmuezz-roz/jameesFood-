@@ -28,6 +28,7 @@ export default function Navbar() {
             src="/jamees_logo.png.webp"
             width={120}
             height={36}
+            style={{ width: "auto", height: "auto" }}
             priority
           />
         </Link>

@@ -16,6 +16,7 @@ export default function Footer() {
               src="/jamees_logo.png.webp" 
               width={160}
               height={48}
+              style={{ width: "auto", height: "auto" }}
             />
             <p className="text-on-surface-variant text-base leading-relaxed mb-8">
               UAE&apos;s favorite frozen treats since 2024. Handcrafted, 100% natural, and always wholesome. Shop Ice Candy, Sweets, and more.

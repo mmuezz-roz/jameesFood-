@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Footer() {
   return (
@@ -9,10 +10,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
           
           <div className="md:col-span-1">
-            <img 
+            <Image 
               alt="Jamees Logo" 
-              className="h-12 mb-8" 
+              className="h-12 w-auto mb-8" 
               src="/jamees_logo.png.webp" 
+              width={160}
+              height={48}
             />
             <p className="text-on-surface-variant text-base leading-relaxed mb-8">
               UAE&apos;s favorite frozen treats since 2024. Handcrafted, 100% natural, and always wholesome. Shop Ice Candy, Sweets, and more.

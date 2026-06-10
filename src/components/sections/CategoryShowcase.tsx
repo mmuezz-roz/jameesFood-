@@ -66,7 +66,7 @@ export default function CategoryShowcase({ categories }: CategoryShowcaseProps) 
       {/* 3-column grid */}
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-5">
         {displayCats.map((cat, i) => (
-          <CategoryCard key={cat.id} cat={cat} index={i} />
+          <CategoryCard key={cat.id} cat={cat as any} index={i} />
         ))}
       </div>
     </section>

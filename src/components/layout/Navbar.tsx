@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { useCart } from "@/context/CartContext"
 import CartSidebar from "@/components/cart/CartSidebar"
 
@@ -21,10 +22,13 @@ export default function Navbar() {
       <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[94%] rounded-full bg-surface/80 backdrop-blur-2xl border border-white/40 shadow-xl z-50 flex justify-between items-center px-5 md:px-10 py-3.5 max-w-[1440px]">
         {/* Logo */}
         <Link className="flex items-center shrink-0" href="/">
-          <img
+          <Image
             alt="Jamees Food Logo"
             className="h-9 w-auto"
             src="/jamees_logo.png.webp"
+            width={120}
+            height={36}
+            priority
           />
         </Link>
 

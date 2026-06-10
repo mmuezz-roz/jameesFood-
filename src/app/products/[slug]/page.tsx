@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { createClient } from "@/lib/supabase/server"
+import { createStaticClient } from "@/lib/supabase/static"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import ProductDetailClient from "@/components/products/ProductDetailClient"
@@ -14,19 +15,20 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const supabase = await createClient()
+  const supabase = createStaticClient()
   const { data } = await supabase.from("products").select("slug")
-  return (data ?? []).map((p) => ({ slug: p.slug }))
+  return (data ?? []).map((p: { slug: string }) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const supabase = await createClient()
-  const { data: product } = await supabase
+  const { data } = await supabase
     .from("products")
     .select("name, tagline, description")
     .eq("slug", slug)
     .single()
+  const product = data as any
 
   if (!product) return { title: "Product Not Found" }
 
@@ -44,11 +46,12 @@ export default async function ProductDetailPage({ params }: Props) {
   const { slug } = await params
   const supabase = await createClient()
 
-  const { data: product } = await supabase
+  const { data } = await supabase
     .from("products")
     .select("*, categories(*)")
     .eq("slug", slug)
     .single()
+  const product = data as any
 
   if (!product) notFound()
 

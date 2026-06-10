@@ -55,7 +55,7 @@ export default function CartSidebar() {
             <div className="flex flex-col items-center justify-center h-full text-center opacity-60">
               <ShoppingBag size={48} className="mb-4 text-[#111010]/20" />
               <p className="text-lg font-medium text-[#111010]">Your cart is empty.</p>
-              <p className="text-sm mt-2">Looks like you haven't added anything yet.</p>
+              <p className="text-sm mt-2">Looks like you haven&apos;t added anything yet.</p>
               <button 
                 onClick={() => setIsCartOpen(false)}
                 className="mt-6 px-6 py-2.5 bg-white border border-[#111010]/20 rounded-full font-bold hover:bg-gray-50 transition-colors"

@@ -1,6 +1,6 @@
 "use client"
 
-import { useActionState } from "react"
+import { useActionState, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { MapPin, Mail, MessageCircle, ArrowUpRight, CheckCircle2 } from "lucide-react"
 import Navbar from "@/components/layout/Navbar"
@@ -10,7 +10,7 @@ import { submitContactForm, type ContactFormState } from "./actions"
 const WA_NUMBER = "971502994974"
 const initialState: ContactFormState = {}
 
-export default function ContactPage() {
+function ContactContent() {
   const searchParams = useSearchParams()
   const initialType = searchParams.get("type") === "retailer" ? "retailer" : "consumer"
 
@@ -183,5 +183,17 @@ export default function ContactPage() {
       </main>
       <Footer />
     </>
+  )
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#FAFAF8] pt-32 flex justify-center items-start">
+        <div className="w-8 h-8 border-4 border-[#E8A000] border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    }>
+      <ContactContent />
+    </Suspense>
   )
 }

@@ -26,12 +26,20 @@ export default function AboutPage() {
 
         {/* ─── Hero ─── */}
         <section className="bg-[#FAFAF8] pt-32 pb-20 px-6 border-b border-[#111010]/5">
-          <div className="max-w-3xl mx-auto reveal">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#111010]/30 block mb-6">Our Story</span>
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.05] tracking-tight text-[#111010] mb-8">
-              About<br />
-              <span className="text-strawberry-red">Jamees</span>
-            </h1>
+          <div className="max-w-3xl mx-auto reveal group cursor-default">
+            <span className="inline-block text-[#111010]/30 font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs mb-6 transition-all duration-700 md:group-hover:tracking-[0.4em] md:group-hover:text-strawberry-red">Our Story</span>
+            <div className="overflow-hidden pb-4">
+              <h1 
+                className="uppercase text-5xl md:text-7xl font-light leading-[1.05] tracking-wider text-[#111010] mb-8 transition-transform duration-700 md:group-hover:translate-x-2"
+                style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+              >
+                About<br />
+                <span className="font-black text-strawberry-red relative inline-block">
+                  Jamees
+                  <span className="absolute -bottom-2 left-0 w-0 h-[3px] bg-strawberry-red transition-all duration-700 group-hover:w-full"></span>
+                </span>
+              </h1>
+            </div>
             <p className="text-[#111010]/55 text-lg leading-relaxed max-w-xl">
               At Jamees, we believe that the best moments in life are made sweeter with delicious, wholesome treats. Born from a passion for quality and a love of authentic flavors, we specialize in crafting 100% natural ice candies and innovative snacks that bring smiles to every age.
             </p>
@@ -40,10 +48,18 @@ export default function AboutPage() {
 
         {/* ─── Mission ─── */}
         <section className="py-28 px-6 bg-[#F2EDE4]">
-          <div className="max-w-4xl mx-auto reveal">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#111010]/30 block mb-6 text-center">Our Mission</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#111010] text-center leading-tight mb-14">
-              Our Mission in the Company
+          <div className="max-w-4xl mx-auto reveal group cursor-default">
+            <div className="text-center">
+              <span className="inline-block text-[#111010]/30 font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs mb-6 transition-all duration-700 md:group-hover:tracking-[0.4em] md:group-hover:text-mango-yellow">Our Mission</span>
+            </div>
+            <h2 
+              className="uppercase text-3xl md:text-5xl font-light text-[#111010] text-center leading-tight mb-14 tracking-wider"
+              style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+            >
+              Our Mission in <span className="font-black relative inline-block">
+                the Company
+                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-mango-yellow transition-all duration-700 group-hover:w-full"></span>
+              </span>
             </h2>
 
             {/* Long-form mission as styled quote blocks */}
@@ -51,7 +67,7 @@ export default function AboutPage() {
               <div className="bg-white rounded-3xl p-8 border border-[#111010]/5 shadow-sm group hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
                 <div className="w-10 h-10 rounded-2xl bg-strawberry-red/10 text-strawberry-red flex items-center justify-center text-lg mb-5">🍧</div>
                 <p className="text-[#111010]/70 text-sm leading-relaxed">
-                  We're on a delicious mission to revolutionize snacking by crafting unforgettable, 100% natural treats that <strong className="text-[#111010]">blend tradition with innovation</strong>.
+                  We&apos;re on a delicious mission to revolutionize snacking by crafting unforgettable, 100% natural treats that <strong className="text-[#111010]">blend tradition with innovation</strong>.
                 </p>
               </div>
               <div className="bg-white rounded-3xl p-8 border border-[#111010]/5 shadow-sm group hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
@@ -79,9 +95,14 @@ export default function AboutPage() {
         {/* ─── Values ─── */}
         <section className="py-28 px-6 bg-[#FAFAF8]">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16 reveal">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#111010]/30 block mb-3">What drives us</span>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-[#111010]">Our Core Values</h2>
+            <div className="text-center mb-16 reveal group cursor-default">
+              <span className="inline-block text-[#111010]/30 font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs mb-3 transition-all duration-700 md:group-hover:tracking-[0.4em]">What drives us</span>
+              <h2 
+                className="uppercase text-3xl md:text-5xl font-light text-[#111010] tracking-wider transition-all duration-500 md:group-hover:tracking-widest"
+                style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+              >
+                Our Core <span className="font-black">Values</span>
+              </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
               {VALUES.map((v) => (
@@ -117,8 +138,17 @@ export default function AboutPage() {
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-mango-yellow/5 blur-[100px]" />
           </div>
-          <div className="max-w-2xl mx-auto text-center relative z-10 reveal">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Taste the difference.<br /><span className="text-strawberry-red">Try it yourself.</span></h2>
+          <div className="max-w-2xl mx-auto text-center relative z-10 reveal group cursor-default">
+            <h2 
+              className="uppercase text-4xl md:text-5xl font-light mb-6 tracking-wider transition-transform duration-700 md:group-hover:-translate-y-2"
+              style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+            >
+              Taste the difference.<br />
+              <span className="font-black text-strawberry-red relative inline-block">
+                Try it yourself.
+                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-strawberry-red transition-all duration-500 group-hover:w-full"></span>
+              </span>
+            </h2>
             <p className="text-white/50 mb-10 text-lg leading-relaxed">Every bite tells a story. Come experience Jamees Food.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/products" className="bg-strawberry-red text-white px-10 py-4 rounded-full font-bold text-lg hover:brightness-110 hover:scale-105 transition-all shadow-xl shadow-strawberry-red/20 inline-block">

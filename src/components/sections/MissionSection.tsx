@@ -48,7 +48,7 @@ export default function MissionSection() {
               transition={{ duration: 0.5, delay: 0.22 }}
               className="relative pl-5 border-l-2 border-[#E8A000]/40 text-[#111010]/55 text-base leading-relaxed italic"
             >
-              We believe natural food shouldn't be a luxury — it should be the everyday choice for every family.
+              We believe natural food shouldn&apos;t be a luxury — it should be the everyday choice for every family.
             </motion.blockquote>
           </div>
 

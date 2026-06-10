@@ -18,19 +18,33 @@ export default function ProductsPage() {
       
       <main className="min-h-screen bg-background pt-20 md:pt-32 pb-16 md:pb-24">
         {/* Header */}
-        <div className="max-w-[1440px] mx-auto px-4 md:px-[80px] text-center mb-12 md:mb-24 reveal">
-          <span className="text-strawberry-red font-bold uppercase tracking-widest text-xs md:text-sm">Direct Purchase</span>
-          <h1 className="text-3xl md:text-7xl font-extrabold mt-3 md:mt-4 text-on-surface">The Jamees Shop</h1>
-          <p className="text-on-surface-variant text-base md:text-xl mt-4 md:mt-6 max-w-2xl mx-auto leading-relaxed">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-[80px] text-center mb-12 md:mb-24 reveal group cursor-default">
+          <span className="inline-block text-strawberry-red font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm transition-all duration-700 md:group-hover:tracking-[0.5em]">Direct Purchase</span>
+          <h1 
+            className="uppercase text-3xl md:text-7xl font-light mt-3 md:mt-4 text-on-surface tracking-wider transition-all duration-700 md:group-hover:tracking-widest"
+            style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+          >
+            The Jamees <span className="font-black">Shop</span>
+          </h1>
+          <div className="mx-auto mt-3 h-[2px] w-0 group-hover:w-40 bg-strawberry-red transition-all duration-700 ease-out rounded-full"></div>
+          <p className="text-on-surface-variant text-base md:text-xl mt-4 md:mt-6 max-w-2xl mx-auto leading-relaxed transition-all duration-700 md:group-hover:text-on-surface">
             Order our authentic Jamees Food originals directly to your door, or explore our premium Mashbere partner collections.
           </p>
         </div>
 
         {/* Jamees Food Originals */}
         <div className="max-w-[1440px] mx-auto px-4 md:px-[80px] mb-16 md:mb-32">
-          <div className="flex items-center gap-4 md:gap-6 mb-8 md:mb-12 reveal">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-on-surface whitespace-nowrap">Jamees Food Originals</h2>
-            <div className="h-[2px] flex-1 bg-outline/10"></div>
+          <div className="flex items-center gap-4 md:gap-6 mb-8 md:mb-12 reveal group cursor-default">
+            <div>
+              <h2 
+                className="uppercase text-2xl md:text-3xl font-light text-on-surface whitespace-nowrap tracking-wider transition-all duration-500 md:group-hover:tracking-widest"
+                style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+              >
+                Jamees Food <span className="font-black">Originals</span>
+              </h2>
+              <div className="mt-1.5 h-[2px] w-0 group-hover:w-full bg-mango-yellow transition-all duration-500 ease-out rounded-full"></div>
+            </div>
+            <div className="h-[1px] flex-1 bg-outline/10"></div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
@@ -47,11 +61,17 @@ export default function ProductsPage() {
               <div className="px-2">
                 <div className="flex justify-between items-start mb-2">
                   <Link href="/products/karumuru">
-                    <h3 className="text-2xl font-extrabold text-on-surface hover:text-strawberry-red transition-colors">Karumuru Murukk</h3>
+                    <span className="text-mango-yellow font-bold tracking-widest text-[10px] uppercase">Authentic Snack</span>
+                    <h3 
+                      className="uppercase text-xl font-light tracking-wider text-on-surface mt-1 group-hover:text-strawberry-red transition-colors"
+                      style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                    >
+                      Karumuru <span className="font-black">Murukk</span>
+                    </h3>
                   </Link>
                   <span className="text-xl font-black text-strawberry-red">10 AED</span>
                 </div>
-                <p className="text-on-surface-variant mb-6 line-clamp-2">Authentic, crunchy savory snacks crafted using a timeless traditional recipe.</p>
+                <p className="text-on-surface-variant text-sm mb-6 line-clamp-2 leading-relaxed">Authentic, crunchy savory snacks crafted using a timeless traditional recipe.</p>
                 <AddToCartButton 
                   product={{
                     id: "karumuru",
@@ -67,9 +87,17 @@ export default function ProductsPage() {
 
         {/* The Mashbere Experience */}
         <div className="max-w-[1440px] mx-auto px-4 md:px-[80px]">
-          <div className="flex items-center gap-4 md:gap-6 mb-8 md:mb-12 reveal">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-on-surface whitespace-nowrap">The Mashbere Experience</h2>
-            <div className="h-[2px] flex-1 bg-outline/10"></div>
+          <div className="flex items-center gap-4 md:gap-6 mb-8 md:mb-12 reveal group cursor-default">
+            <div>
+              <h2 
+                className="uppercase text-2xl md:text-3xl font-light text-on-surface whitespace-nowrap tracking-wider transition-all duration-700 md:group-hover:-translate-y-0.5"
+                style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+              >
+                The Mashbere <span className="font-black">Experience</span>
+              </h2>
+              <div className="mt-1.5 h-[2px] w-0 group-hover:w-full bg-tertiary transition-all duration-700 ease-out rounded-full"></div>
+            </div>
+            <div className="h-[1px] flex-1 bg-outline/10"></div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
@@ -83,9 +111,15 @@ export default function ProductsPage() {
                 />
               </div>
               <div className="px-2 text-center">
-                <span className="text-tertiary font-bold tracking-widest text-[10px] uppercase">Premium Range</span>
-                <h3 className="text-2xl font-extrabold text-on-surface mt-1 mb-6">Popsicles</h3>
-                <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="block w-full border-2 border-on-surface text-on-surface py-4 rounded-full font-bold text-lg hover:bg-on-surface hover:text-white transition-all">
+                <span className="text-tertiary font-bold tracking-[0.25em] text-[10px] uppercase">Premium Range</span>
+                <h3 
+                  className="uppercase text-xl font-light tracking-wider text-on-surface mt-1 mb-1"
+                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                >
+                  <span className="font-black">Popsicles</span>
+                </h3>
+                <p className="text-on-surface-variant text-sm mb-6 leading-relaxed">Artisanal frozen popsicles made with real fruit, in a range of bold flavors.</p>
+                <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="group/btn relative overflow-hidden block w-full border border-on-surface text-on-surface py-4 rounded-full font-bold text-xs tracking-[0.2em] uppercase hover:border-strawberry-red hover:text-strawberry-red transition-all">
                   Visit Mashbere
                 </a>
               </div>
@@ -102,9 +136,15 @@ export default function ProductsPage() {
                 />
               </div>
               <div className="px-2 text-center">
-                <span className="text-tertiary font-bold tracking-widest text-[10px] uppercase">Refreshing Blends</span>
-                <h3 className="text-2xl font-extrabold text-on-surface mt-1 mb-6">Famous Pookees</h3>
-                <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="block w-full border-2 border-on-surface text-on-surface py-4 rounded-full font-bold text-lg hover:bg-on-surface hover:text-white transition-all">
+                <span className="text-strawberry-red font-bold tracking-[0.25em] text-[10px] uppercase">Refreshing Blends</span>
+                <h3 
+                  className="uppercase text-xl font-light tracking-wider text-on-surface mt-1 mb-1"
+                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                >
+                  Famous <span className="font-black">Pookees</span>
+                </h3>
+                <p className="text-on-surface-variant text-sm mb-6 leading-relaxed">16 handcrafted seasonal flavors made with real fruit and traditional techniques.</p>
+                <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="block w-full border border-on-surface text-on-surface py-4 rounded-full font-bold text-xs tracking-[0.2em] uppercase hover:border-strawberry-red hover:text-strawberry-red transition-all">
                   Visit Mashbere
                 </a>
               </div>
@@ -121,9 +161,15 @@ export default function ProductsPage() {
                 />
               </div>
               <div className="px-2 text-center">
-                <span className="text-tertiary font-bold tracking-widest text-[10px] uppercase">Natural Fruit</span>
-                <h3 className="text-2xl font-extrabold text-on-surface mt-1 mb-6">Signature Sipups</h3>
-                <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="block w-full border-2 border-on-surface text-on-surface py-4 rounded-full font-bold text-lg hover:bg-on-surface hover:text-white transition-all">
+                <span className="text-mango-yellow font-bold tracking-[0.25em] text-[10px] uppercase">Natural Fruit</span>
+                <h3 
+                  className="uppercase text-xl font-light tracking-wider text-on-surface mt-1 mb-1"
+                  style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                >
+                  Signature <span className="font-black">Sipups</span>
+                </h3>
+                <p className="text-on-surface-variant text-sm mb-6 leading-relaxed">Natural fruit ice pops and concentrated syrups for ultimate summer refreshment.</p>
+                <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="block w-full border border-on-surface text-on-surface py-4 rounded-full font-bold text-xs tracking-[0.2em] uppercase hover:border-strawberry-red hover:text-strawberry-red transition-all">
                   Visit Mashbere
                 </a>
               </div>

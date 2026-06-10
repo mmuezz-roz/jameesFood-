@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import RevealObserver from "@/components/RevealObserver"
 import AddToCartButton from "@/components/products/AddToCartButton"
+import ShareButton from "@/components/products/ShareButton"
 import Image from "next/image"
 import Link from "next/link"
 import kurmuruImg from "../../../../public/kurmuru.jpg"
@@ -74,19 +75,22 @@ export default function KarumuruPage() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <AddToCartButton 
-                  product={{
-                    id: "karumuru",
-                    name: "Karumuru Murukk",
-                    price: 10,
-                    image: "/kurmuru.jpg"
-                  }} 
+              <div className="flex flex-row gap-3 md:gap-4 items-center">
+                <div className="flex-1">
+                  <AddToCartButton 
+                    product={{
+                      id: "karumuru",
+                      name: "Karumuru Murukk",
+                      price: 10,
+                      image: "/kurmuru.jpg"
+                    }} 
+                  />
+                </div>
+                <ShareButton 
+                  title="Karumuru Murukk | The Jamees Shop" 
+                  text="Check out these authentic, crunchy savory snacks from Jamees Food!" 
+                  url="/products/karumuru" 
                 />
-                <button className="bg-white text-on-surface border-2 border-outline/20 py-5 px-8 rounded-full font-bold text-lg hover:border-on-surface transition-all flex items-center justify-center gap-3">
-                  <span className="material-symbols-outlined">favorite_border</span>
-                  Wishlist
-                </button>
               </div>
 
               {/* Details Accordion style info */}

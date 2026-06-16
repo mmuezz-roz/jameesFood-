@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import RevealObserver from "@/components/RevealObserver"
@@ -5,12 +6,69 @@ import AddToCartButton from "@/components/products/AddToCartButton"
 import ShareButton from "@/components/products/ShareButton"
 import Image from "next/image"
 import Link from "next/link"
+import Script from "next/script"
 import kurmuruImg from "../../../../public/kurmuru.jpg"
 import kurmuruHoverImg from "../../../../public/savory-snacks-collection.png"
 
+export const metadata: Metadata = {
+  title: "Karumuru Murukk | Authentic Savory Snack | Jamees Food",
+  description: "Experience the ultimate crunch with our signature Karumuru Murukk. Crafted using a timeless traditional recipe, premium rice flour, and roasted spices.",
+  keywords: ["Karumuru Murukk", "South Indian snacks", "savory snacks", "crunchy snacks", "authentic Indian snacks", "Jamees Food", "buy snacks online AED"],
+  alternates: {
+    canonical: "https://jameesfood.com/products/karumuru",
+  },
+  openGraph: {
+    title: "Karumuru Murukk | Authentic Savory Snack | Jamees Food",
+    description: "Experience the ultimate crunch with our signature Karumuru Murukk. Crafted using a timeless traditional recipe, premium rice flour, and roasted spices.",
+    url: "https://jameesfood.com/products/karumuru",
+    siteName: "Jamees Food",
+    images: [
+      {
+        url: "https://jameesfood.com/kurmuru.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Karumuru Murukk",
+      }
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Karumuru Murukk | Authentic Savory Snack",
+    description: "Experience the ultimate crunch with our signature Karumuru Murukk. Crafted using a timeless traditional recipe.",
+    images: ["https://jameesfood.com/kurmuru.jpg"],
+  },
+}
+
 export default function KarumuruPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Karumuru Murukk",
+    "image": "https://jameesfood.com/kurmuru.jpg",
+    "description": "Experience the ultimate crunch with our signature Karumuru Murukk. Crafted using a timeless traditional recipe, these golden, spiral-shaped savory snacks deliver an irresistible combination of roasted spices and perfect texture.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Jamees Food"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://jameesfood.com/products/karumuru",
+      "priceCurrency": "AED",
+      "price": "10.00",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition"
+    }
+  };
+
   return (
     <>
+      <Script
+        id="product-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <RevealObserver />
       <Navbar />
       <main className="min-h-screen bg-background pt-20 md:pt-24 pb-16">

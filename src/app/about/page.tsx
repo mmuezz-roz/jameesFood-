@@ -1,6 +1,22 @@
-"use client"
-
+import type { Metadata } from "next"
 import Link from "next/link"
+import Script from "next/script"
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Learn about Jamees Food. We specialize in crafting 100% natural ice candies and innovative snacks that bring smiles to every age.",
+  alternates: {
+    canonical: "https://jameesfood.com/about",
+  },
+  openGraph: {
+    title: "About Us | Jamees Food",
+    description: "Learn about Jamees Food. We specialize in crafting 100% natural ice candies and innovative snacks that bring smiles to every age.",
+    url: "https://jameesfood.com/about",
+    siteName: "Jamees Food",
+    locale: "en_US",
+    type: "website",
+  }
+}
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import RevealObserver from "@/components/RevealObserver"
@@ -18,8 +34,24 @@ const VALUES = [
 ]
 
 export default function AboutPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Jamees Food",
+    "description": "At Jamees, we believe that the best moments in life are made sweeter with delicious, wholesome treats.",
+    "url": "https://jameesfood.com/about",
+    "publisher": {
+      "@id": "https://jameesfood.com/#organization"
+    }
+  };
+
   return (
     <>
+      <Script
+        id="about-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <RevealObserver />
       <Navbar />
       <main className="min-h-screen bg-[#FAFAF8] pt-16">

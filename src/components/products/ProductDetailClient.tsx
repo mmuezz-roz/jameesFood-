@@ -7,7 +7,7 @@ import { MessageCircle, ChevronDown, ChevronUp, ArrowRight, Leaf } from "lucide-
 import type { ProductWithCategory } from "@/lib/supabase/types"
 import { productCardUrl, cloudinaryUrl } from "@/lib/cloudinary"
 
-const WA_NUMBER = "971502994974"
+const WA_NUMBER = "971566577588"
 
 const CATEGORY_COLORS: Record<string, string> = {
   "ice-candy": "#1BBFA3",

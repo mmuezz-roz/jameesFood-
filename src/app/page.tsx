@@ -6,6 +6,7 @@ import SipUpSlider from "@/components/SipUpSlider"
 import TrendingSlider from "@/components/TrendingSlider"
 import Image from "next/image"
 import Link from "next/link"
+import Script from "next/script"
 import heroBg from "../../public/hero-bg.webp"
 import heroBg2 from "../../public/hero-bg-2.png"
 import heroMobileNew from "../../public/hero-mobile-new.png"
@@ -20,9 +21,42 @@ import coreValuesBg from "../../public/core-values-bg.jpg"
 import mashberePopsiclesImg from "../../public/mashbere-popsicles.png"
 
 export default function HomePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://jameesfood.com/#website",
+        "url": "https://jameesfood.com/",
+        "name": "Jamees Food",
+        "description": "Experience the purity of nature with our handcrafted frozen treats and authentic snacks.",
+        "publisher": {
+          "@id": "https://jameesfood.com/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://jameesfood.com/#organization",
+        "name": "Jamees Food",
+        "url": "https://jameesfood.com/",
+        "logo": "https://jameesfood.com/jamees_logo.png.webp",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+971566577588",
+          "contactType": "customer service",
+          "availableLanguage": ["English", "Arabic"]
+        }
+      }
+    ]
+  };
 
   return (
     <>
+      <Script
+        id="home-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <RevealObserver />
       <Navbar />
       
@@ -33,7 +67,7 @@ export default function HomePage() {
           <div className="hidden md:block relative w-full">
             <Image
               src={heroBg}
-              alt="Karumuru Hero 1"
+              alt="Assorted colorful, fruit-packed Karumuru ice snacks and popsicles"
               priority
               placeholder="blur"
               className="w-full h-auto block"
@@ -41,7 +75,7 @@ export default function HomePage() {
             />
             <Image
               src={heroBg2}
-              alt="Karumuru Hero 2"
+              alt="Close-up of premium Jamees Food natural frozen treats"
               priority
               placeholder="blur"
               className="absolute inset-0 w-full h-full object-cover object-center animate-crossfade"
@@ -53,14 +87,14 @@ export default function HomePage() {
           <div className="block md:hidden w-full h-full relative">
             <Image
               src={heroMobileNew}
-              alt="Karumuru Hero Mobile 1"
+              alt="Refreshing natural ice candy displayed for mobile"
               priority
               className="absolute inset-0 w-full h-full object-cover object-center"
               sizes="100vw"
             />
             <Image
               src={heroBg2}
-              alt="Karumuru Hero Mobile 2"
+              alt="Delicious Jamees Food frozen treats background"
               priority
               placeholder="blur"
               className="absolute inset-0 w-full h-full object-cover object-center animate-crossfade"
@@ -262,13 +296,13 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-5 text-center reveal group cursor-default">
           <span className="inline-block text-mango-yellow font-bold tracking-[0.3em] md:group-hover:tracking-[0.5em] text-xs md:text-sm uppercase transition-all duration-700">OUR CORE VALUES</span>
-          {/* Word-by-word glow — warm, nature-inspired for values section */}
+          {/* Core values headline — minimal styling */}
           <h2 className="uppercase text-3xl md:text-5xl font-light mt-6 mb-8 md:mb-12 leading-tight tracking-wider" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-            <span className="inline-block transition-all duration-500 md:group-hover:text-mango-yellow md:group-hover:drop-shadow-[0_0_20px_rgba(250,189,0,0.6)]">Naturally</span>{" "}
-            <span className="inline-block transition-all duration-700 md:group-hover:text-white md:group-hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.4)]">Better</span>
+            <span className="inline-block text-mango-yellow">Naturally</span>{" "}
+            <span className="inline-block">Better</span>
             <br/>
-            <span className="inline-block transition-all duration-500 md:group-hover:text-white/60">For</span>{" "}
-            <span className="inline-block transition-all duration-700 md:group-hover:text-mango-yellow md:group-hover:drop-shadow-[0_0_20px_rgba(250,189,0,0.6)]">Everyone</span>
+            <span className="inline-block text-white/80">For</span>{" "}
+            <span className="inline-block text-mango-yellow">Everyone</span>
           </h2>
           <p className="text-base md:text-2xl leading-relaxed mb-10 md:mb-16 text-white/80 italic font-light max-w-4xl mx-auto">
             &quot;At Jamees, we&apos;re on a delicious mission to revolutionize snacking. We believe everyone deserves treats that are as honest as they are flavorful.&quot;

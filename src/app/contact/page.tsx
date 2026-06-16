@@ -7,7 +7,7 @@ import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import { submitContactForm, type ContactFormState } from "./actions"
 
-const WA_NUMBER = "971502994974"
+const WA_NUMBER = "971566577588"
 const initialState: ContactFormState = {}
 
 function ContactContent() {
@@ -68,8 +68,8 @@ function ContactContent() {
                   <div className="pt-0.5">
                     <h3 className="font-display font-semibold text-[#111010] text-lg mb-1">Email</h3>
                     <p className="text-[#111010]/55 text-sm mb-2">For partnerships, feedback, and support.</p>
-                    <a href="mailto:hello@jameesfood.com" className="text-[#111010] font-medium text-sm hover:text-[#E8A000] transition-colors">
-                      hello@jameesfood.com
+                    <a href="mailto:info@jameesfood.com" className="text-[#111010] font-medium text-sm hover:text-[#E8A000] transition-colors">
+                      info@jameesfood.com
                     </a>
                   </div>
                 </div>

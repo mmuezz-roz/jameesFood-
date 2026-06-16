@@ -11,6 +11,27 @@ export const metadata: Metadata = {
   description:
     "Experience the purity of nature with our handcrafted frozen treats and authentic snacks. Clean ingredients, timeless flavors for everyone.",
   keywords: ["jamees food", "natural snacks", "ice candy", "syrups", "UAE", "Kerala", "SipUp", "Karumuru"],
+  openGraph: {
+    title: "Jamees Food | 100% Natural Frozen Treats & Snacks",
+    description: "Experience the purity of nature with our handcrafted frozen treats and authentic snacks.",
+    url: "https://jameesfood.com",
+    siteName: "Jamees Food",
+    images: [
+      {
+        url: "/jamees_logo.png.webp", // Assuming this is used as a fallback OG image
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jamees Food | 100% Natural Frozen Treats & Snacks",
+    description: "Experience the purity of nature with our handcrafted frozen treats and authentic snacks.",
+    images: ["/jamees_logo.png.webp"],
+  },
 }
 
 export default function RootLayout({

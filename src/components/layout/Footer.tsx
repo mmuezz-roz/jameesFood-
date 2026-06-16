@@ -44,6 +44,7 @@ export default function Footer() {
               <li><Link className="text-on-surface-variant hover:text-strawberry-red transition-all font-medium" href="/about">Our Story</Link></li>
               <li><Link className="text-on-surface-variant hover:text-strawberry-red transition-all font-medium" href="/#mashbere">Mashbere B2B</Link></li>
               <li><Link className="text-on-surface-variant hover:text-strawberry-red transition-all font-medium" href="/contact?type=retailer">Retail Partnership</Link></li>
+              <li><Link className="text-on-surface-variant hover:text-strawberry-red transition-all font-medium" href="/faq">FAQ</Link></li>
               <li><Link className="text-on-surface-variant hover:text-strawberry-red transition-all font-medium" href="/contact">Contact Us</Link></li>
             </ul>
           </div>
@@ -68,8 +69,8 @@ export default function Footer() {
         <div className="pt-12 border-t border-on-surface/5 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-on-surface-variant/60 font-bold uppercase tracking-widest">
           <p>© 2024 Jamees Food Trading. All rights reserved.</p>
           <div className="flex gap-8">
-            <Link className="hover:text-strawberry-red transition-all" href="#">Privacy Policy</Link>
-            <Link className="hover:text-strawberry-red transition-all" href="#">Terms of Service</Link>
+            <Link className="hover:text-strawberry-red transition-all" href="/privacy-policy">Privacy Policy</Link>
+            <Link className="hover:text-strawberry-red transition-all" href="/terms">Terms of Service</Link>
           </div>
         </div>
       </div>

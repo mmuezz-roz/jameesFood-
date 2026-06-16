@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import RevealObserver from "@/components/RevealObserver"
@@ -10,9 +11,41 @@ import popsiclesImg from "../../../public/mashbere-popsicles.png"
 import pookeesImg from "../../../public/pookees.jpg"
 import sipupAllImg from "../../../public/sipup-all.png"
 
+import Script from "next/script"
+
+export const metadata: Metadata = {
+  title: "Shop Our Products | Authentic Snacks & Frozen Treats",
+  description: "Order our authentic Jamees Food originals directly to your door, or explore our premium Mashbere partner collections.",
+  keywords: ["Jamees Food products", "authentic snacks", "ice candy online", "buy sipups UAE", "Mashbere popsicles"],
+  alternates: {
+    canonical: "https://jameesfood.com/products",
+  },
+  openGraph: {
+    title: "Shop Our Products | Jamees Food",
+    description: "Order our authentic Jamees Food originals directly to your door, or explore our premium Mashbere partner collections.",
+    url: "https://jameesfood.com/products",
+    siteName: "Jamees Food",
+    locale: "en_US",
+    type: "website",
+  }
+}
+
 export default function ProductsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Shop Our Products - Jamees Food",
+    "description": "Order our authentic Jamees Food originals directly to your door, or explore our premium Mashbere partner collections.",
+    "url": "https://jameesfood.com/products"
+  };
+
   return (
     <>
+      <Script
+        id="products-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <RevealObserver />
       <Navbar />
       

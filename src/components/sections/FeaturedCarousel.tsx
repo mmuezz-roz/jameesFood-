@@ -31,6 +31,36 @@ const EMOJIS: Record<string, string> = {
   syrups:      "🍯",
 }
 
+// Magnetic card wrapper — follows the mouse within the card bounds
+function MagneticCard({ children }: { children: React.ReactNode }) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [offset, setOffset] = useState({ x: 0, y: 0 })
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const cx = rect.left + rect.width / 2
+    const cy = rect.top + rect.height / 2
+    setOffset({
+      x: (e.clientX - cx) * 0.08,
+      y: (e.clientY - cy) * 0.08,
+    })
+  }
+
+  const handleMouseLeave = () => setOffset({ x: 0, y: 0 })
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      animate={{ x: offset.x, y: offset.y }}
+      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
 export default function FeaturedCarousel({ products }: FeaturedCarouselProps) {
   const ref      = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
@@ -105,68 +135,70 @@ export default function FeaturedCarousel({ products }: FeaturedCarouselProps) {
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex-none w-56 md:w-64 group"
+              className="flex-none w-56 md:w-64"
             >
-              <Link href={`/products/${product.slug}`} className="block">
-                {/* Image area */}
-                <div
-                  className="relative rounded-2xl overflow-hidden mb-3.5"
-                  style={{ aspectRatio: "3/4" }}
-                >
-                  {product.image_public_id ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={productCardUrl(product.image_public_id)}
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                    />
-                  ) : (
-                    <div
-                      className="w-full h-full flex items-center justify-center text-6xl group-hover:scale-[1.03] transition-transform duration-500"
-                      style={{ backgroundColor: `${palette.dot}15` }}
-                    >
-                      {EMOJIS[catSlug] ?? "🍃"}
-                    </div>
-                  )}
+              <MagneticCard>
+                <Link href={`/products/${product.slug}`} className="block group">
+                  {/* Image area */}
+                  <div
+                    className="relative rounded-2xl overflow-hidden mb-3.5"
+                    style={{ aspectRatio: "3/4" }}
+                  >
+                    {product.image_public_id ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={productCardUrl(product.image_public_id)}
+                        alt={product.name}
+                        className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-600"
+                      />
+                    ) : (
+                      <div
+                        className="w-full h-full flex items-center justify-center text-6xl group-hover:scale-[1.08] transition-transform duration-500"
+                        style={{ backgroundColor: `${palette.dot}15` }}
+                      >
+                        {EMOJIS[catSlug] ?? "🍃"}
+                      </div>
+                    )}
 
-                  {/* Category chip */}
-                  <div className="absolute top-3 left-3">
-                    <span
-                      className="tag text-[10px]"
-                      style={{ backgroundColor: `${palette.dot}20`, color: palette.dot }}
-                    >
-                      <span className="w-1 h-1 rounded-full" style={{ backgroundColor: palette.dot }} />
-                      {catName}
-                    </span>
+                    {/* Category chip */}
+                    <div className="absolute top-3 left-3">
+                      <span
+                        className="tag text-[10px]"
+                        style={{ backgroundColor: `${palette.dot}20`, color: palette.dot }}
+                      >
+                        <span className="w-1 h-1 rounded-full" style={{ backgroundColor: palette.dot }} />
+                        {catName}
+                      </span>
+                    </div>
+
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-[#111010]/0 group-hover:bg-[#111010]/30 transition-colors duration-300 flex items-end p-4">
+                      <span className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 inline-flex items-center gap-1.5 text-white font-display font-semibold text-xs">
+                        View product <ArrowRight size={12} />
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-[#111010]/0 group-hover:bg-[#111010]/30 transition-colors duration-300 flex items-end p-4">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-1.5 text-white font-display font-semibold text-xs">
-                      View product <ArrowRight size={12} />
-                    </span>
+                  {/* Info */}
+                  <div className="px-0.5">
+                    <h3 className="font-display font-semibold text-[#111010] text-base leading-snug group-hover:text-[#E8A000] transition-colors duration-200">
+                      {product.name}
+                    </h3>
+                    {product.tagline && (
+                      <p className="text-sm text-[#111010]/45 mt-0.5 leading-snug">{product.tagline}</p>
+                    )}
+                    {product.dietary_tags && product.dietary_tags.length > 0 && (
+                      <div className="flex gap-1.5 mt-2 flex-wrap">
+                        {product.dietary_tags.slice(0, 2).map((tag) => (
+                          <span key={tag} className="text-[10px] bg-[#111010]/[0.06] text-[#111010]/50 rounded-full px-2 py-0.5 font-medium">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </div>
-
-                {/* Info */}
-                <div className="px-0.5">
-                  <h3 className="font-display font-semibold text-[#111010] text-base leading-snug group-hover:text-[#E8A000] transition-colors duration-200">
-                    {product.name}
-                  </h3>
-                  {product.tagline && (
-                    <p className="text-sm text-[#111010]/45 mt-0.5 leading-snug">{product.tagline}</p>
-                  )}
-                  {product.dietary_tags && product.dietary_tags.length > 0 && (
-                    <div className="flex gap-1.5 mt-2 flex-wrap">
-                      {product.dietary_tags.slice(0, 2).map((tag) => (
-                        <span key={tag} className="text-[10px] bg-[#111010]/[0.06] text-[#111010]/50 rounded-full px-2 py-0.5 font-medium">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </Link>
+                </Link>
+              </MagneticCard>
             </motion.div>
           )
         })}

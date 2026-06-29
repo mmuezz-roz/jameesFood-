@@ -4,6 +4,7 @@ import RevealObserver from "@/components/RevealObserver"
 import TestimonialSlider from "@/components/TestimonialSlider"
 import SipUpSlider from "@/components/SipUpSlider"
 import TrendingSlider from "@/components/TrendingSlider"
+import RotatingText from "@/components/RotatingText"
 import Image from "next/image"
 import Link from "next/link"
 import Script from "next/script"
@@ -107,12 +108,14 @@ export default function HomePage() {
             <div className="max-w-2xl text-left reveal cursor-default group w-full">
               <span className="text-white/80 tracking-[0.3em] md:tracking-[0.4em] uppercase text-[9px] md:text-xs font-semibold mb-4 md:mb-6 block drop-shadow-sm transition-all duration-700 md:group-hover:tracking-[0.6em] md:group-hover:text-white">Handcrafted Excellence</span>
               <h1 
-                className="uppercase text-4xl sm:text-5xl md:text-[4.5rem] text-white mb-4 md:mb-8 font-light tracking-wide md:tracking-wider leading-[1.1] md:leading-[1.15] drop-shadow-sm transition-transform duration-700 ease-out md:group-hover:translate-x-4"
+                className="uppercase text-4xl sm:text-5xl md:text-[4.5rem] text-white mb-4 md:mb-8 font-light tracking-wide md:tracking-wider leading-[1.1] md:leading-[1.15] drop-shadow-sm transition-transform duration-700 ease-out md:group-hover:translate-x-4 flex flex-col items-start"
                 style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
               >
-                Taste the <br className="sm:hidden"/> Joy of <br className="hidden md:block"/>
+                <span className="block">Taste the</span>
+                <span className="block">Joy of</span>
+                <span className="block">Every</span>
                 <span className="font-bold relative inline-block group/word cursor-pointer mt-1 md:mt-0">
-                  Every Generation
+                  <RotatingText texts={['Flavour', 'Generation', 'Moment']} mainClassName="inline-flex overflow-hidden justify-start" staggerFrom="last" initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "-120%" }} staggerDuration={0.025} splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1" transition={{ type: "spring", damping: 30, stiffness: 400 }} rotationInterval={2500} />
                   <span className="absolute -bottom-1 md:-bottom-2 left-0 w-0 h-[2px] md:h-[3px] bg-white transition-all duration-500 group-hover/word:w-full"></span>
                 </span>
               </h1>

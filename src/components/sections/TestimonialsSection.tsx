@@ -37,6 +37,72 @@ const TESTIMONIALS = [
   },
 ]
 
+function TestimonialCard({ t, index, isInView }: { t: typeof TESTIMONIALS[0]; index: number; isInView: boolean }) {
+  const cardRef = useRef<HTMLDivElement>(null)
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      className="relative bg-white rounded-2xl p-6 border border-[#111010]/[0.06] flex flex-col gap-4 overflow-hidden group hover:shadow-[0_12px_40px_rgba(17,16,16,0.1)] transition-shadow duration-300"
+    >
+      {/* Shimmer sweep on reveal */}
+      {isInView && (
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          initial={{ x: "-100%", opacity: 1 }}
+          animate={{ x: "200%", opacity: 0.6 }}
+          transition={{ duration: 0.9, delay: index * 0.12 + 0.1, ease: "easeOut" }}
+          style={{
+            background: `linear-gradient(90deg, transparent 0%, ${t.accent}18 40%, ${t.accent}30 50%, ${t.accent}18 60%, transparent 100%)`,
+          }}
+        />
+      )}
+
+      {/* Subtle color border on hover */}
+      <div
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+        style={{ boxShadow: `inset 0 0 0 1.5px ${t.accent}30` }}
+      />
+
+      {/* Stars */}
+      <div className="flex gap-1">
+        {Array.from({ length: t.rating }).map((_, si) => (
+          <motion.span
+            key={si}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: index * 0.12 + 0.3 + si * 0.06, type: "spring", stiffness: 400 }}
+          >
+            <Star size={12} className="fill-[#E8A000] text-[#E8A000]" />
+          </motion.span>
+        ))}
+      </div>
+
+      {/* Quote */}
+      <p className="text-sm text-[#111010]/65 leading-relaxed flex-1">
+        &ldquo;{t.quote}&rdquo;
+      </p>
+
+      {/* Author */}
+      <div className="flex items-center gap-3 pt-2 border-t border-[#111010]/[0.05]">
+        <div
+          className="w-9 h-9 rounded-full flex items-center justify-center text-base flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
+          style={{ backgroundColor: `${t.accent}18` }}
+        >
+          {t.emoji}
+        </div>
+        <div>
+          <div className="font-display font-semibold text-[#111010] text-sm">{t.name}</div>
+          <div className="text-[11px] text-[#111010]/40">{t.location}</div>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
 export default function TestimonialsSection() {
   const ref      = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-80px" })
@@ -66,39 +132,7 @@ export default function TestimonialsSection() {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {TESTIMONIALS.map((t, i) => (
-            <motion.div
-              key={t.id}
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white rounded-2xl p-6 border border-[#111010]/[0.06] flex flex-col gap-4 hover:shadow-[0_12px_40px_rgba(17,16,16,0.08)] transition-shadow duration-300"
-            >
-              {/* Stars */}
-              <div className="flex gap-1">
-                {Array.from({ length: t.rating }).map((_, si) => (
-                  <Star key={si} size={12} className="fill-[#E8A000] text-[#E8A000]" />
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="text-sm text-[#111010]/65 leading-relaxed flex-1">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-3 pt-2 border-t border-[#111010]/[0.05]">
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-base flex-shrink-0"
-                  style={{ backgroundColor: `${t.accent}18` }}
-                >
-                  {t.emoji}
-                </div>
-                <div>
-                  <div className="font-display font-semibold text-[#111010] text-sm">{t.name}</div>
-                  <div className="text-[11px] text-[#111010]/40">{t.location}</div>
-                </div>
-              </div>
-            </motion.div>
+            <TestimonialCard key={t.id} t={t} index={i} isInView={isInView} />
           ))}
         </div>
       </div>

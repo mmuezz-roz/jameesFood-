@@ -48,10 +48,34 @@ module.exports = {
           '0%, 40%': { opacity: '0' },
           '50%, 90%': { opacity: '1' },
           '100%': { opacity: '0' },
+        },
+        'marquee-left': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-right': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% center' },
+          '100%': { backgroundPosition: '200% center' },
+        },
+        'dot-breathe': {
+          '0%, 100%': { opacity: '0.04' },
+          '50%': { opacity: '0.08' },
+        },
+        'count-up': {
+          from: { opacity: '0', transform: 'translateY(8px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
         }
       },
       animation: {
         crossfade: 'crossfade 8s ease-in-out infinite',
+        'marquee-left': 'marquee-left 28s linear infinite',
+        'marquee-right': 'marquee-right 22s linear infinite',
+        shimmer: 'shimmer 2s linear infinite',
+        'dot-breathe': 'dot-breathe 4s ease-in-out infinite',
       }
     },
   },

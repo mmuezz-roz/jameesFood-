@@ -5,6 +5,7 @@ import TestimonialSlider from "@/components/TestimonialSlider"
 import SipUpSlider from "@/components/SipUpSlider"
 import TrendingSlider from "@/components/TrendingSlider"
 import RotatingText from "@/components/RotatingText"
+import Shuffle from "@/components/Shuffle"
 import Image from "next/image"
 import Link from "next/link"
 import Script from "next/script"
@@ -226,60 +227,62 @@ export default function HomePage() {
       </section>
 
       {/* Browse Categories (Staggered Grid) */}
-      <section className="py-12 md:py-[120px] px-4 md:px-[80px] lg:px-[120px] bg-surface-container-low" id="browse-categories">
+      <section className="py-10 md:py-[120px] px-4 md:px-[80px] lg:px-[120px] bg-surface-container-low" id="browse-categories">
         <div className="max-w-[1440px] mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-16 gap-3 md:gap-6 reveal">
             <div className="max-w-2xl group cursor-default">
-              {/* Left-border accent — slides in from left on hover, editorial style */}
               <div className="flex items-center gap-4 overflow-hidden">
                 <span className="inline-block w-0 md:group-hover:w-10 h-[2px] bg-strawberry-red transition-all duration-500 ease-out"></span>
-                <span className="text-strawberry-red font-bold uppercase tracking-[0.2em] md:group-hover:tracking-[0.4em] text-sm transition-all duration-500">Fresh Selection</span>
+                <span className="text-strawberry-red font-bold uppercase tracking-[0.2em] text-xs md:text-sm transition-all duration-500">Fresh Selection</span>
               </div>
-              <h2 className="uppercase text-4xl md:text-5xl lg:text-6xl font-light mt-4 text-on-surface leading-tight tracking-wider transition-all duration-700 md:group-hover:translate-x-2" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Explore Our Collections</h2>
+              <h2 className="uppercase text-3xl md:text-5xl lg:text-6xl font-light mt-3 md:mt-4 text-on-surface leading-tight tracking-wider" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Explore Our Collections</h2>
             </div>
-            <a className="text-strawberry-red font-bold text-lg flex items-center group mb-2" href="#">
-              View All <span className="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-2">arrow_forward</span>
+            <a className="text-strawberry-red font-bold text-base md:text-lg flex items-center group" href="#">
+              View All <span className="material-symbols-outlined ml-1 transition-transform group-hover:translate-x-2">arrow_forward</span>
             </a>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 reveal">
-            <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="lg:col-span-8 group relative overflow-hidden rounded-3xl bg-white shadow-lg min-h-[500px] flex items-stretch cursor-pointer block">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-8 reveal">
+            {/* Hero card */}
+            <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="lg:col-span-8 group relative overflow-hidden rounded-2xl md:rounded-3xl bg-white shadow-lg min-h-[300px] md:min-h-[500px] flex items-stretch cursor-pointer block">
               <Image 
                 src={pookeesCollectionImg}
                 alt="Pookees"
                 fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-10">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 md:p-10">
                 <span className="text-white/60 font-bold tracking-[0.25em] text-[9px] uppercase mb-1">Mashbere Collection</span>
-                <h3 className="uppercase text-3xl font-light tracking-wider text-white mb-3 drop-shadow-md" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Famous <span className="font-black">Pookees</span></h3>
-                <p className="text-white/70 text-sm mb-6 max-w-md leading-relaxed">16 handcrafted seasonal flavors made with real fruit and traditional techniques.</p>
-                <div className="bg-white text-on-surface text-center w-fit px-7 py-3 rounded-full font-bold text-[10px] tracking-[0.2em] uppercase hover:bg-strawberry-red hover:text-white transition-all">Discover Flavors</div>
+                <h3 className="uppercase text-2xl md:text-3xl font-light tracking-wider text-white mb-2 md:mb-3 drop-shadow-md" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Famous <Shuffle text="Pookees" tag="span" className="font-black" hoverTriggerSelector=".group" /></h3>
+                <p className="text-white/70 text-sm mb-4 md:mb-6 max-w-md leading-relaxed hidden sm:block">16 handcrafted seasonal flavors made with real fruit and traditional techniques.</p>
+                <div className="bg-white text-on-surface text-center w-fit px-5 md:px-7 py-2.5 md:py-3 rounded-full font-bold text-[10px] tracking-[0.2em] uppercase hover:bg-strawberry-red hover:text-white transition-all">Discover Flavors</div>
               </div>
             </a>
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-8">
-              <Link href="/products/karumuru" className="flex-1 group relative overflow-hidden rounded-3xl bg-white shadow-lg min-h-[250px] cursor-pointer" id="snacks">
+
+            {/* Side cards — horizontal on mobile, vertical on desktop */}
+            <div className="lg:col-span-4 flex flex-row lg:flex-col gap-5 md:gap-8">
+              <Link href="/products/karumuru" className="flex-1 group relative overflow-hidden rounded-2xl md:rounded-3xl bg-white shadow-lg min-h-[160px] md:min-h-[250px] cursor-pointer" id="snacks">
                 <Image 
                   src={savoryCollectionImg}
                   alt="Karumuru"
-                  fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  fill sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-contain transition-transform duration-1000 scale-110 group-hover:scale-125"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-7">
-                  <span className="text-white/50 font-bold tracking-[0.25em] text-[9px] uppercase mb-0.5">Authentic Snack</span>
-                  <h3 className="uppercase text-xl font-light tracking-wider text-white drop-shadow-md" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Karu<span className="font-black">muru</span></h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4 md:p-7">
+                  <span className="text-white/50 font-bold tracking-[0.25em] text-[8px] md:text-[9px] uppercase mb-0.5">Authentic Snack</span>
+                  <h3 className="uppercase text-base md:text-xl font-light tracking-wider text-white drop-shadow-md" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Karu<Shuffle text="muru" tag="span" className="font-black" hoverTriggerSelector=".group" /></h3>
                 </div>
               </Link>
-              <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="flex-1 group relative overflow-hidden rounded-3xl bg-white shadow-lg min-h-[250px] cursor-pointer block" id="syrups">
+              <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="flex-1 group relative overflow-hidden rounded-2xl md:rounded-3xl bg-white shadow-lg min-h-[160px] md:min-h-[250px] cursor-pointer block" id="syrups">
                 <Image 
                   src={sipupAllImg}
                   alt="Signature Sipups"
-                  fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  fill sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-contain transition-transform duration-1000 scale-110 group-hover:scale-125"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-7">
-                  <span className="text-white/50 font-bold tracking-[0.25em] text-[9px] uppercase mb-0.5">Natural Fruit</span>
-                  <h3 className="uppercase text-xl font-light tracking-wider text-white drop-shadow-md" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Signature <span className="font-black">Sipups</span></h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4 md:p-7">
+                  <span className="text-white/50 font-bold tracking-[0.25em] text-[8px] md:text-[9px] uppercase mb-0.5">Natural Fruit</span>
+                  <h3 className="uppercase text-base md:text-xl font-light tracking-wider text-white drop-shadow-md" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Signature <Shuffle text="Sipups" tag="span" className="font-black" hoverTriggerSelector=".group" /></h3>
                 </div>
               </a>
             </div>
@@ -288,7 +291,7 @@ export default function HomePage() {
       </section>
 
       {/* Mission Quote Section */}
-      <section className="relative py-14 md:py-[120px] overflow-hidden bg-on-surface text-white">
+      <section className="relative py-12 md:py-[120px] overflow-hidden bg-on-surface text-white">
         <div className="absolute inset-0 opacity-20 mix-blend-overlay">
           <Image 
             src={coreValuesBg}
@@ -298,93 +301,93 @@ export default function HomePage() {
           />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-5 text-center reveal group cursor-default">
-          <span className="inline-block text-mango-yellow font-bold tracking-[0.3em] md:group-hover:tracking-[0.5em] text-xs md:text-sm uppercase transition-all duration-700">OUR CORE VALUES</span>
-          {/* Core values headline — minimal styling */}
-          <h2 className="uppercase text-3xl md:text-5xl font-light mt-6 mb-8 md:mb-12 leading-tight tracking-wider" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
-            <span className="inline-block text-mango-yellow">Naturally</span>{" "}
-            <span className="inline-block">Better</span>
+          <span className="inline-block text-mango-yellow font-bold tracking-[0.3em] text-xs md:text-sm uppercase transition-all duration-700 md:group-hover:tracking-[0.6em] md:group-hover:text-white">OUR CORE VALUES</span>
+          <h2 className="uppercase text-2xl md:text-5xl font-light mt-4 md:mt-6 mb-6 md:mb-12 leading-tight tracking-wider transition-all duration-700 md:group-hover:scale-105" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+            <span className="inline-block text-mango-yellow transition-colors duration-500 group-hover:text-strawberry-red">Naturally</span>{" "}
+            <span className="inline-block transition-colors duration-500 group-hover:text-mango-yellow">Better</span>
             <br/>
-            <span className="inline-block text-white/80">For</span>{" "}
-            <span className="inline-block text-mango-yellow">Everyone</span>
+            <span className="inline-block text-white/80 transition-colors duration-500 group-hover:text-white">For</span>{" "}
+            <span className="inline-block text-mango-yellow transition-all duration-500 group-hover:text-strawberry-red">Everyone</span>
           </h2>
-          <p className="text-base md:text-2xl leading-relaxed mb-10 md:mb-16 text-white/80 italic font-light max-w-4xl mx-auto">
+          <p className="text-sm md:text-2xl leading-relaxed mb-8 md:mb-16 text-white/80 italic font-light max-w-4xl mx-auto">
             &quot;At Jamees, we&apos;re on a delicious mission to revolutionize snacking. We believe everyone deserves treats that are as honest as they are flavorful.&quot;
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-16 border-t border-white/10">
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4">
-                <span className="material-symbols-outlined text-3xl">eco</span>
+          {/* Values — horizontal scroll on mobile, grid on desktop */}
+          <div className="grid grid-cols-3 md:grid-cols-3 gap-4 md:gap-12 pt-8 md:pt-16 border-t border-white/10">
+            <div className="flex flex-col items-center gap-2 md:gap-0">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-full flex items-center justify-center md:mb-4">
+                <span className="material-symbols-outlined text-xl md:text-3xl">eco</span>
               </div>
-              <span className="font-bold text-lg">100% All-Natural</span>
+              <span className="font-bold text-xs md:text-lg text-center leading-tight">100% All-Natural</span>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4">
-                <span className="material-symbols-outlined text-3xl">local_shipping</span>
+            <div className="flex flex-col items-center gap-2 md:gap-0">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-full flex items-center justify-center md:mb-4">
+                <span className="material-symbols-outlined text-xl md:text-3xl">local_shipping</span>
               </div>
-              <span className="font-bold text-lg">UAE-Wide Delivery</span>
+              <span className="font-bold text-xs md:text-lg text-center leading-tight">UAE-Wide Delivery</span>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4">
-                <span className="material-symbols-outlined text-3xl">favorite</span>
+            <div className="flex flex-col items-center gap-2 md:gap-0">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-full flex items-center justify-center md:mb-4">
+                <span className="material-symbols-outlined text-xl md:text-3xl">favorite</span>
               </div>
-              <span className="font-bold text-lg">Kid Approved</span>
+              <span className="font-bold text-xs md:text-lg text-center leading-tight">Kid Approved</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Mashbere B2B Section */}
-      <section className="py-12 md:py-[120px] px-4 md:px-[80px] bg-cream-bg" id="mashbere">
+      <section className="py-10 md:py-[120px] px-4 md:px-[80px] bg-cream-bg" id="mashbere">
         <div className="max-w-[1440px] mx-auto">
-          <div className="text-center mb-10 md:mb-20 reveal group cursor-default">
-            <span className="inline-block text-tertiary font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[10px] md:text-xs transition-all duration-700 md:group-hover:tracking-[0.5em] md:group-hover:text-strawberry-red">
+          <div className="text-center mb-8 md:mb-20 reveal group cursor-default">
+            <span className="inline-block text-tertiary font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[10px] md:text-xs">
               Strategic Partnership
             </span>
-            <div className="overflow-hidden pb-4">
+            <div className="overflow-hidden pb-2 md:pb-4">
               <h2 
-                className="relative inline-block uppercase text-2xl md:text-5xl font-light mt-3 md:mt-6 text-on-surface tracking-wider transition-transform duration-700 ease-out md:group-hover:-translate-y-2" 
+                className="relative inline-block uppercase text-xl md:text-5xl font-light mt-2 md:mt-6 text-on-surface tracking-wider" 
                 style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
               >
                 Mashbere&apos;s Premium Collections
                 <span className="absolute -bottom-1 md:-bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] md:h-[3px] bg-strawberry-red transition-all duration-500 group-hover:w-full"></span>
               </h2>
             </div>
-            <p className="text-on-surface-variant text-sm md:text-lg mt-1 md:mt-3 max-w-3xl mx-auto leading-relaxed transition-all duration-700 md:group-hover:text-on-surface">
+            <p className="text-on-surface-variant text-xs md:text-lg mt-1 md:mt-3 max-w-3xl mx-auto leading-relaxed px-2">
               Exclusively distributed by Jamees Food, Mashbere brings world-class frozen treats to the UAE market.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 reveal">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 reveal">
             {/* Ice Creams & Popsicles */}
-            <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden rounded-[4rem] glass-card p-12 min-h-[550px] flex flex-col justify-between hover:shadow-2xl transition-all cursor-pointer">
+            <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden rounded-3xl md:rounded-[4rem] glass-card p-7 md:p-12 min-h-[380px] md:min-h-[550px] flex flex-col justify-between hover:shadow-2xl transition-all cursor-pointer">
               <div className="relative z-10">
                 <span className="text-tertiary font-bold tracking-[0.25em] text-[9px] uppercase">Premium Range</span>
-                <h3 className="uppercase text-2xl font-light tracking-wider text-on-surface mt-1 mb-3" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Ice Creams &amp; <span className="font-black">Popsicles</span></h3>
-                <p className="text-on-surface-variant text-sm max-w-xs leading-relaxed">Artisanal frozen delights crafted with premium ingredients and innovative textures.</p>
+                <h3 className="uppercase text-xl md:text-2xl font-light tracking-wider text-on-surface mt-1 mb-2 md:mb-3" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>Ice Creams & <Shuffle text="Popsicles" tag="span" className="font-black" hoverTriggerSelector=".group" /></h3>
+                <p className="text-on-surface-variant text-xs md:text-sm max-w-xs leading-relaxed">Artisanal frozen delights crafted with premium ingredients and innovative textures.</p>
               </div>
-              <div className="relative flex-1 flex items-center justify-center py-10 px-6">
+              <div className="relative flex-1 flex items-center justify-center py-5 md:py-10 px-3 md:px-6">
                 <div className="flex items-center justify-center w-full relative animate-float">
                   <Image 
                     src={mashberePopsiclesImg} 
                     alt="Ice Creams & Popsicles" 
-                    className="w-full h-auto drop-shadow-2xl rounded-[2rem]"
+                    className="w-full h-auto drop-shadow-2xl rounded-2xl md:rounded-[2rem]"
                   />
                 </div>
               </div>
-              <div className="bg-strawberry-red text-center text-white w-full py-4 rounded-3xl font-bold text-[10px] tracking-[0.2em] uppercase shadow-lg shadow-strawberry-red/20 group-hover:brightness-110 transition-all">Explore Flavors</div>
+              <div className="bg-strawberry-red text-center text-white w-full py-3.5 md:py-4 rounded-2xl md:rounded-3xl font-bold text-[10px] tracking-[0.2em] uppercase shadow-lg shadow-strawberry-red/20 group-hover:brightness-110 transition-all">Explore Flavors</div>
             </a>
             
             {/* SipUp Syrups */}
-            <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden rounded-[4rem] bg-white shadow-xl p-12 min-h-[550px] flex flex-col justify-between hover:shadow-2xl transition-all cursor-pointer">
+            <a href="https://www.mashbere.com/products" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden rounded-3xl md:rounded-[4rem] bg-white shadow-xl p-7 md:p-12 min-h-[380px] md:min-h-[550px] flex flex-col justify-between hover:shadow-2xl transition-all cursor-pointer">
               <div>
                 <span className="text-mango-yellow font-bold tracking-[0.25em] text-[9px] uppercase">Natural Fruit</span>
-                <h3 className="uppercase text-2xl font-light tracking-wider text-on-surface mt-1 mb-3" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>SipUp <span className="font-black">Syrups</span></h3>
-                <p className="text-on-surface-variant text-sm max-w-xs leading-relaxed">Natural fruit ice pops and concentrated syrups designed for ultimate summer refreshment.</p>
+                <h3 className="uppercase text-xl md:text-2xl font-light tracking-wider text-on-surface mt-1 mb-2 md:mb-3" style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>SipUp <Shuffle text="Syrups" tag="span" className="font-black" hoverTriggerSelector=".group" /></h3>
+                <p className="text-on-surface-variant text-xs md:text-sm max-w-xs leading-relaxed">Natural fruit ice pops and concentrated syrups designed for ultimate summer refreshment.</p>
               </div>
-              <div className="relative flex-1 flex items-center justify-center py-10">
+              <div className="relative flex-1 flex items-center justify-center py-4 md:py-10">
                 <SipUpSlider />
               </div>
-              <div className="border border-on-surface text-center text-on-surface w-full py-4 rounded-3xl font-bold text-[10px] tracking-[0.2em] uppercase group-hover:bg-on-surface group-hover:text-white transition-all">View SipUp Collection</div>
+              <div className="border border-on-surface text-center text-on-surface w-full py-3.5 md:py-4 rounded-2xl md:rounded-3xl font-bold text-[10px] tracking-[0.2em] uppercase group-hover:bg-on-surface group-hover:text-white transition-all">View SipUp Collection</div>
             </a>
           </div>
           
@@ -436,27 +439,27 @@ export default function HomePage() {
       </section>
 
       {/* Trending Section */}
-      <section className="py-12 md:py-[120px] px-4 md:px-[80px] bg-surface">
+      <section className="py-10 md:py-[120px] px-4 md:px-[80px] bg-surface">
         <div className="max-w-[1440px] mx-auto">
           <TrendingSlider />
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-12 md:py-[120px] px-4 md:px-[80px] bg-surface-container-low relative">
+      <section className="py-10 md:py-[120px] px-4 md:px-[80px] bg-surface-container-low relative">
         <div className="max-w-[1440px] mx-auto">
-          <div className="text-center mb-10 md:mb-20 reveal group cursor-default">
-            {/* Heart beat pulse — warm, emotional for testimonials/community */}
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <span className="material-symbols-outlined text-strawberry-red text-sm transition-transform duration-300 md:group-hover:scale-125 md:group-hover:drop-shadow-[0_0_8px_rgba(213,39,39,0.8)]" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
-              <span className="text-strawberry-red font-bold uppercase tracking-[0.2em] md:group-hover:tracking-[0.4em] text-xs md:text-sm transition-all duration-500">Testimonials</span>
-              <span className="material-symbols-outlined text-strawberry-red text-sm transition-transform duration-300 md:group-hover:scale-125 md:group-hover:drop-shadow-[0_0_8px_rgba(213,39,39,0.8)]" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
+          <div className="text-center mb-8 md:mb-20 reveal group cursor-default">
+            <div className="flex items-center justify-center gap-2 mb-2 transition-transform duration-700 md:group-hover:-translate-y-1">
+              <span className="material-symbols-outlined text-strawberry-red text-sm transition-all duration-500 md:group-hover:rotate-12 md:group-hover:scale-125 md:group-hover:text-rose-500" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
+              <span className="text-strawberry-red font-bold uppercase tracking-[0.2em] text-xs md:text-sm transition-all duration-700 md:group-hover:tracking-[0.4em] md:group-hover:text-rose-500">Testimonials</span>
+              <span className="material-symbols-outlined text-strawberry-red text-sm transition-all duration-500 md:group-hover:-rotate-12 md:group-hover:scale-125 md:group-hover:text-rose-500" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
             </div>
             <h2 
-              className="uppercase text-3xl md:text-5xl font-light mt-4 md:mt-6 tracking-wider transition-all duration-700 md:group-hover:tracking-[0.08em]"
+              className="relative inline-block uppercase text-2xl md:text-5xl font-light mt-3 md:mt-6 tracking-wider transition-all duration-700 md:group-hover:tracking-[0.1em]"
               style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
             >
               Love From Our Families
+              <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] md:h-[3px] bg-strawberry-red transition-all duration-500 group-hover:w-full"></span>
             </h2>
           </div>
           <TestimonialSlider />

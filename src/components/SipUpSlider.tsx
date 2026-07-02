@@ -33,7 +33,7 @@ export default function SipUpSlider() {
           <Image src={mashberePomoImg} alt="Pomegranate SipUp" fill sizes="(max-width: 1200px) 50vw, 33vw" className="object-contain object-bottom" />
         </div>
         {/* Center */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 h-96 w-40 group-hover:-translate-y-4 transition-all duration-500 drop-shadow-2xl z-20">
+        <div className="absolute left-[55%] -translate-x-1/2 bottom-0 h-96 w-40 group-hover:-translate-y-4 transition-all duration-500 drop-shadow-2xl z-20">
           <Image src={mashbereLycheeImg} alt="Lychee SipUp" fill sizes="(max-width: 1200px) 50vw, 33vw" className="object-contain object-bottom" />
         </div>
         {/* Right */}
@@ -44,14 +44,15 @@ export default function SipUpSlider() {
 
       {/* --- Mobile View: Auto Swiping (hidden on desktop) --- */}
       <div className="flex md:hidden relative w-full h-full justify-center items-end overflow-hidden">
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0, x: 60, scale: 0.95 }}
-            animate={{ opacity: 1, x: '-50%', scale: 1 }}
-            exit={{ opacity: 0, x: -100, scale: 0.95 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute left-1/2 bottom-6 h-[320px] w-48 drop-shadow-[0_20px_30px_rgba(0,0,0,0.25)] z-20"
+            initial={{ opacity: 0, scale: 0.88, y: 28 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.88, y: -28 }}
+            transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{ x: "-50%" }}
+            className={`absolute bottom-6 h-[320px] w-48 drop-shadow-[0_20px_30px_rgba(0,0,0,0.25)] z-20 ${currentIndex === 1 ? "left-[55%]" : "left-[47%]"}`}
           >
             <Image 
               src={sips[currentIndex].src} 

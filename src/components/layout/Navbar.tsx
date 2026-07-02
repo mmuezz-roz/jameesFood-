@@ -8,10 +8,10 @@ import CartSidebar from "@/components/cart/CartSidebar"
 import { motion, AnimatePresence } from "framer-motion"
 
 const NAV_LINKS = [
-  { href: "/#ice-candy", label: "Ice Candy" },
-  { href: "/#snacks", label: "Snacks" },
-  { href: "/#syrups", label: "Syrups" },
-  { href: "/#mashbere", label: "Mashbere" },
+  { href: "/#ice-candy", label: "Ice Candy", icon: "ac_unit" },
+  { href: "/#snacks", label: "Snacks", icon: "cookie" },
+  { href: "/#syrups", label: "Syrups", icon: "water_drop" },
+  { href: "/#mashbere", label: "Mashbere", icon: "restaurant" },
 ]
 
 export default function Navbar() {
@@ -125,6 +125,7 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <>
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -133,48 +134,59 @@ export default function Navbar() {
               className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
               onClick={() => setMobileOpen(false)}
             />
-            <motion.div 
-              initial={{ opacity: 0, y: -10, scale: 0.98 }}
+
+            {/* Menu Panel — anchored left/right to avoid any overflow */}
+            <motion.div
+              initial={{ opacity: 0, y: -12, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.98 }}
-              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-              className="fixed top-[84px] left-1/2 -translate-x-1/2 w-[92%] max-w-sm z-40 md:hidden bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white overflow-hidden max-h-[calc(100vh-100px)] flex flex-col"
+              exit={{ opacity: 0, y: -12, scale: 0.97 }}
+              transition={{ type: "spring", bounce: 0, duration: 0.35 }}
+              className="fixed top-[96px] left-4 right-4 z-50 md:hidden bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/60 overflow-hidden"
+              style={{ maxHeight: "calc(100vh - 100px)" }}
             >
-              <div className="flex flex-col p-4 gap-2 overflow-y-auto scrollbar-hide">
+              {/* Nav links */}
+              <div className="flex flex-col p-3 gap-1 overflow-y-auto">
                 {NAV_LINKS.map((l, idx) => (
                   <motion.div
                     key={l.href}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * idx }}
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.04 * idx, duration: 0.25 }}
                   >
                     <Link
                       href={l.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block text-on-surface font-semibold text-lg px-5 py-3.5 rounded-2xl hover:bg-strawberry-red/10 hover:text-strawberry-red transition-all active:scale-[0.98]"
+                      className="flex items-center gap-3 w-full text-on-surface font-semibold text-base px-4 py-3.5 rounded-xl hover:bg-strawberry-red/10 hover:text-strawberry-red transition-all active:scale-[0.98]"
                     >
+                      <span className="material-symbols-outlined text-xl opacity-60" style={{ fontVariationSettings: "'FILL' 1" }}>
+                        {l.icon}
+                      </span>
                       {l.label}
                     </Link>
                   </motion.div>
                 ))}
-                <motion.div 
+
+                {/* Divider + CTA buttons */}
+                <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="border-t border-black/5 mt-2 pt-4 flex flex-col gap-3 shrink-0"
+                  transition={{ delay: 0.18 }}
+                  className="border-t border-black/8 mt-2 pt-3 flex flex-col gap-2"
                 >
                   <Link
                     href="/products"
                     onClick={() => setMobileOpen(false)}
-                    className="w-full text-center bg-strawberry-red text-white font-bold py-4 rounded-2xl hover:brightness-110 active:scale-[0.98] transition-all shadow-md shadow-strawberry-red/20"
+                    className="flex items-center justify-center gap-2 w-full bg-strawberry-red text-white font-bold py-3.5 rounded-xl hover:brightness-110 active:scale-[0.98] transition-all shadow-md shadow-strawberry-red/25"
                   >
+                    <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>shopping_bag</span>
                     Shop Now
                   </Link>
                   <Link
                     href="/about"
                     onClick={() => setMobileOpen(false)}
-                    className="w-full text-center text-on-surface font-bold py-4 rounded-2xl border-2 border-outline/10 hover:bg-surface-container-low active:scale-[0.98] transition-all"
+                    className="flex items-center justify-center gap-2 w-full text-on-surface font-bold py-3.5 rounded-xl border border-black/10 hover:bg-black/5 active:scale-[0.98] transition-all"
                   >
+                    <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>info</span>
                     Our Story
                   </Link>
                 </motion.div>
